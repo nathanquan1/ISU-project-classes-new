@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    public GameObject mainMenu;
+    public GameObject playMenu;
     public GameObject settingsMenu;
     public GameObject deckMenu;
     void Start()
     {
-        MainMenu();
+        OpenPlayMenu();
     }
 
     // Update is called once per frame
@@ -18,24 +19,35 @@ public class MenuController : MonoBehaviour
     {
 
     }
-    public void MainMenu()
+    // SWITCH UI:
+    public void OpenPlayMenu()
     {
-        mainMenu.SetActive(true);
+        playMenu.SetActive(true);
         settingsMenu.SetActive(false);
         deckMenu.SetActive(false);
     }
-    public void Settings()
+    public void OpenSettings()
     {
         settingsMenu.SetActive(true);
-        mainMenu.SetActive(false);
+        playMenu.SetActive(false);
         deckMenu.SetActive(false);
     }
 
-    public void DeckMenu()
+    public void OpenDeckMenu()
     {
         settingsMenu.SetActive(false);
-        mainMenu.SetActive(false);
-        
+        playMenu.SetActive(false);
+
         deckMenu.SetActive(true);
+    }
+    //SWITCH SCENE:
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("");
+    }
+    
+    public void Homescreen()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 }
