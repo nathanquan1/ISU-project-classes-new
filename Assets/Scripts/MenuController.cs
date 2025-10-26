@@ -9,6 +9,8 @@ public class MenuController : MonoBehaviour
     public GameObject playMenu;
     public GameObject settingsMenu;
     public GameObject deckMenu;
+
+    public Gameplay gameplay;
     void Start()
     {
         OpenPlayMenu();
@@ -44,7 +46,8 @@ public class MenuController : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene("");
-        Gameplay.StartGame();
+        //variable : public Gameplay gameplay;
+        gameplay.StartGame();
     }
     
     public void Homescreen()
