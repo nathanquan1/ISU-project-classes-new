@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using UnityEditor;
 public class Gameplay : MonoBehaviour
 {
     // Start is called before the first frame update
+    public MenuController menuController;
     public bool GameRunning = false;
+
     void Start()
     {
         
@@ -28,5 +31,6 @@ public class Gameplay : MonoBehaviour
     public void EndGame()
     {
         GameRunning = false;
+        menuController.Homescreen();
     }
 }
