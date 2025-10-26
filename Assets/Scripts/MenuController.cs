@@ -45,7 +45,7 @@ public class MenuController : MonoBehaviour
     //SWITCH SCENE:
     public void PlayGame()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("GameScene");
         //variable : public Gameplay gameplay;
         gameplay.StartGame();
     }
