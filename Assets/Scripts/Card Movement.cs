@@ -24,6 +24,7 @@ public class CardMovement : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log("update");
         _y += this._speed * Time.deltaTime; //multiply by time because ifyou dont then fps will effect speed
         transform.position = new Vector2(this._x, this._y);
     }
@@ -33,7 +34,7 @@ public class CardMovement : MonoBehaviour
         //SPAWN BOTTOM CENTER : 960,0
         this._x = 960;
         this._y = 0;
-        Vector2 spawnPoint = new Vector2(this._x, this._y);
+        Vector2 spawnPoint = Camera.main.ScreenToWorldPoint(new Vector2(this._x, this._y));
         GameObject newCard = Instantiate(card, spawnPoint, Quaternion.identity); //Need this to move the card
     }
 }
