@@ -28,11 +28,9 @@ public class MenuController : MonoBehaviour
         settingsMenu.SetActive(false);
         deckMenu.SetActive(false);
     }
-    public void OpenSettings()
+    public void ToggleSettings()
     {
-        settingsMenu.SetActive(true);
-        playMenu.SetActive(false);
-        deckMenu.SetActive(false);
+        settingsMenu.SetActive(!settingsMenu.activeSelf);
     }
 
     public void OpenDeckMenu()
