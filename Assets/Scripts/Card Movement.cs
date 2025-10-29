@@ -1,26 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
-//using System.Numerics;
+using Unity.VisualScripting;
+
+//
+
+//using System.Numerics; Delete if unity automatically adds it back
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class CardMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private float _x;
+    private float _y;
+    private int _speed = 1;
+
+    public GameObject card;
+
     void Start()
     {
-        
+        _x = transform.position.x; //X AND Y NEEDS TO BE FLOATS ***
+        _y = transform.position.y;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Vector2 move = new Vector2(0, 1);//up 1 pixel
-        transform.Translate(move.x* Time.deltaTime, move.y *Time.deltaTime,0);//xyz
+        _y += this._speed * Time.deltaTime; //multiply by time because ifyou dont then fps will effect speed
+        transform.position = new Vector2(this._x, this._y);
     }
     public void SpawnCharacter()
     {
-        //x,y,z
-        transform.position = new Vector2(960,0);
+        
+        //SPAWN BOTTOM CENTER : 960,0
+        this._x = 960;
+        this._y = 0;
+        Vector2 spawnPoint = new Vector2(this._x, this._y);
+        GameObject newCard = Instantiate(card, spawnPoint, Quaternion.identity); //Need this to move the card
     }
+}
+// class might not be needed
+public class TungSahur : CardMovement
+{
+    private int _speed = 2;
 }
