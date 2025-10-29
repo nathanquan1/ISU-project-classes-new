@@ -10,9 +10,10 @@ using UnityEngine.UIElements;
 
 public class CardMovement : MonoBehaviour
 {
+    //base class
     private float _x;
     private float _y;
-    private int _speed = 1;
+    private float _speed = 0.5f;
 
     public GameObject card;
 
@@ -37,9 +38,4 @@ public class CardMovement : MonoBehaviour
         Vector2 spawnPoint = Camera.main.ScreenToWorldPoint(new Vector2(this._x, this._y));
         GameObject newCard = Instantiate(card, spawnPoint, Quaternion.identity); //Need this to move the card
     }
-}
-// class might not be needed
-public class TungSahur : CardMovement
-{
-    private int _speed = 2;
 }
