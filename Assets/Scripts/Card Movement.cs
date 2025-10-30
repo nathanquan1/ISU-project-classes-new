@@ -10,9 +10,10 @@ using UnityEngine.UIElements;
 public class CardMovement : MonoBehaviour
 {
     //base class
+
     private float _x;
     private float _y;
-    private float _speed = 0.5f;
+    private float _speed = 0.4f;
     private string _direction = "N";
     private Animator animator;
     // use north, south, North east, etc so we can abreviate it
@@ -44,16 +45,17 @@ public class CardMovement : MonoBehaviour
         {
             this._x -= this._speed * Time.deltaTime;
         }
-        
-
         transform.position = new Vector2(this._x, this._y);
+
+        if (this._x > -4&& this._x <-4.1)
+        {
+            ChangeDirection("S");
+        }
     }
     public void SpawnCharacter()
     {
-        //SPAWN BOTTOM CENTER : 960,0 for now
-        this._x = 960;
-        this._y = 0;
-        
+        this._x = 0;
+        this._y = 540;
         Vector2 spawnPoint = Camera.main.ScreenToWorldPoint(new Vector2(this._x, this._y));
         GameObject newCard = Instantiate(card, spawnPoint, Quaternion.identity); //Need this to move the card
     }

@@ -8,7 +8,7 @@ public class MenuController : MonoBehaviour
 {
     public GameObject playMenu;
     public GameObject settingsMenu;
-    public GameObject deckMenu;
+    public GameObject loadoutMenu;
 
     public Gameplay gameplay;
     void Start()
@@ -26,19 +26,19 @@ public class MenuController : MonoBehaviour
     {
         playMenu.SetActive(true);
         settingsMenu.SetActive(false);
-        deckMenu.SetActive(false);
+        loadoutMenu.SetActive(false);
     }
     public void ToggleSettings()
     {
         settingsMenu.SetActive(!settingsMenu.activeSelf);
     }
 
-    public void OpenDeckMenu()
+    public void OpenLoadoutMenu()
     {
         settingsMenu.SetActive(false);
         playMenu.SetActive(false);
 
-        deckMenu.SetActive(true);
+        loadoutMenu.SetActive(true);
     }
     //SWITCH SCENE:
     public void PlayGame()

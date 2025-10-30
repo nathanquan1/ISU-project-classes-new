@@ -1574,7 +1574,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Deck / Loadout
+  m_text: EDIT LOUDOUT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1601,8 +1601,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1798,7 +1798,7 @@ GameObject:
   - component: {fileID: 1436798406}
   - component: {fileID: 1436798405}
   m_Layer: 5
-  m_Name: Edit Deck Button
+  m_Name: Edit Loadout Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2051,7 +2051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068824d61893d8d4d80cd234007b6055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuController: {fileID: 0}
+  menuController: {fileID: 1658054799}
   GameRunning: 0
 --- !u!4 &1455571758
 Transform:
@@ -2249,7 +2249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playMenu: {fileID: 53882112}
   settingsMenu: {fileID: 1448770801}
-  deckMenu: {fileID: 1715924716}
+  loadoutMenu: {fileID: 1715924716}
   gameplay: {fileID: 1455571757}
 --- !u!4 &1658054800
 Transform:
@@ -2412,7 +2412,7 @@ GameObject:
   - component: {fileID: 1715924718}
   - component: {fileID: 1715924717}
   m_Layer: 5
-  m_Name: Edit Deck Menu (Canvas)
+  m_Name: Edit Loadout Menu (Canvas)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
