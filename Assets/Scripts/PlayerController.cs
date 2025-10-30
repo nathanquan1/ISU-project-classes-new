@@ -4,14 +4,13 @@ using UnityEngine;
 using TMPro;
 public class PlayerController : MonoBehaviour
 {
-    //Might be wrong:
-    public int _health;
-    public int _energy;
+
+    public int Health;
+    public int Energy;
 
     public PlayerController()
     {
-        this._health = 10;
-        this._energy = 0;
+        
     }
     
 
@@ -23,10 +22,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-}
-public class EnemyController : PlayerController
-{
-    //This might be suppsoed to be in another file 
+
 }
