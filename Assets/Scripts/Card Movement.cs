@@ -23,6 +23,7 @@ public class CardMovement : MonoBehaviour
         this._x = transform.position.x; //X AND Y NEEDS TO BE FLOATS ***
         this._y = transform.position.y;
         animator = GetComponent<Animator>();
+        ChangeDirection("E");
     }
 
     void Update()
@@ -61,7 +62,7 @@ public class CardMovement : MonoBehaviour
         this._direction = direction;
         if (direction == "N")
         {
-            animator.Play("walk_up"); //Play specific animation file
+            animator.Play("walk_forward"); //Play specific animation file
         }
         else if (direction == "E")
         {
