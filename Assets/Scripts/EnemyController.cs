@@ -7,13 +7,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class CardMovement : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     //base class
 
     private float _x;
     private float _y;
-    private float _speed = 0.4f;
+    private float _speed = 2f; //0.5
     private string _direction = "N";
     private Animator animator;
     // use north, south, North east, etc so we can abreviate it
@@ -49,14 +49,23 @@ public class CardMovement : MonoBehaviour
 
 
         //PATH TEST 
-        if (this._x >= -4.1f && this._x <= -4f)
+        if (this._x >= -4.1f && this._x <= -4f) //Its a range bc if it checks for an exact value they can pass it
         {
             ChangeDirection("S");
         }
-        if (this._y <= -3 && this._y >= -3.1)
+        if (this._y <= -3 && this._y >= -3.2)
         {
             ChangeDirection("E");
         }
+        if (this._x >= 0.6f && this._x < 0.7)
+        {
+            ChangeDirection("N");
+        }
+        if (this._y >=1.1 && this._y <= 1.2)
+        {
+            ChangeDirection("E");
+        }
+        
     }
     public void SpawnCharacter()
     {
