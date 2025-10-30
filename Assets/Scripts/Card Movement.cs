@@ -47,9 +47,15 @@ public class CardMovement : MonoBehaviour
         }
         transform.position = new Vector2(this._x, this._y);
 
-        if (this._x > -4&& this._x <-4.1)
+
+        //PATH TEST 
+        if (this._x >= -4.1f && this._x <= -4f)
         {
             ChangeDirection("S");
+        }
+        if (this._y <= -3 && this._y >= -3.1)
+        {
+            ChangeDirection("E");
         }
     }
     public void SpawnCharacter()
