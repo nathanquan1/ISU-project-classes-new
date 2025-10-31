@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
 
     private float _x;
     private float _y;
-    private float _speed = 2f; //0.5
+    private float _speed = 0.5f; //0.5
     private string _direction = "N";
     private Animator animator;
     // use north, south, North east, etc so we can abreviate it
@@ -29,6 +29,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        //directions
         if (this._direction == "N")
         {
             this._y += this._speed * Time.deltaTime;
@@ -48,7 +49,7 @@ public class EnemyController : MonoBehaviour
         transform.position = new Vector2(this._x, this._y);
 
 
-        //PATH TEST 
+        //PATH  
         if (this._x >= -4.1f && this._x <= -4f) //Its a range bc if it checks for an exact value they can pass it
         {
             ChangeDirection("S");
@@ -61,9 +62,22 @@ public class EnemyController : MonoBehaviour
         {
             ChangeDirection("N");
         }
-        if (this._y >=1.1 && this._y <= 1.2)
+        if (this._y >= 1.1 && this._y <= 1.2)
         {
             ChangeDirection("E");
+        }
+        if (this._x >= 4 && this._x <= 4.1f)
+        {
+            ChangeDirection("S");
+        }
+        if (this._y <= 0 && this._y >= -0.1 && this._x >= 4)
+        {
+            ChangeDirection("E");
+        }
+        //end of path:
+        if (this._x >= 9)
+        {
+            Destroy(this.gameObject);
         }
         
     }
