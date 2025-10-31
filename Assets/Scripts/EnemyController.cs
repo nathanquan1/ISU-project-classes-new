@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     private float _x;
     private float _y;
     private string _direction = "N";// use north, south, North east, etc so we can abreviate it
-    private Animator animator; 
+    private Animator animator;
     public GameObject card;
     //Stats:
     protected float _speed; //0.5
@@ -23,6 +23,7 @@ public class EnemyController : MonoBehaviour
 
     protected virtual void Start()
     {
+        Debug.Log("Base Start");
         this._x = transform.position.x; //X AND Y NEEDS TO BE FLOATS ***
         this._y = transform.position.y;
         animator = GetComponent<Animator>();
@@ -85,7 +86,7 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        
+
     }
     public virtual void SpawnEnemy()
     {
@@ -113,5 +114,11 @@ public class EnemyController : MonoBehaviour
         {
             animator.Play("walk_left");
         }
+    }
+    public void ChangeStats(float speed, int health, int damage)
+    {
+        this._speed = speed;
+        this._health = health;
+        this._damage = damage;
     }
 }
