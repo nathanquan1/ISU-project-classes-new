@@ -8,7 +8,7 @@ public class Gameplay : MonoBehaviour
     // Start is called before the first frame update
     public MenuController menuController;
     public bool GameRunning = false;
-
+    public EnemyController enemyController;
     void Start()
     {
         
@@ -20,6 +20,8 @@ public class Gameplay : MonoBehaviour
         if (GameRunning)
         {
             //
+            enemyController.SpawnEnemy();
+
         }
     }
     public void StartGame()
@@ -27,6 +29,10 @@ public class Gameplay : MonoBehaviour
         //i think it needs to be static for it to be used in other file
         GameRunning = true;
 
+    }
+    public void TakeDamage(int damage)
+    {
+        
     }
     public void EndGame()
     {

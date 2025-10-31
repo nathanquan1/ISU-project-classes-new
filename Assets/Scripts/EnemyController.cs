@@ -13,18 +13,24 @@ public class EnemyController : MonoBehaviour
 
     private float _x;
     private float _y;
-    private float _speed = 0.5f; //0.5
-    private string _direction = "N";
-    private Animator animator;
-    // use north, south, North east, etc so we can abreviate it
+    private string _direction = "N";// use north, south, North east, etc so we can abreviate it
+    private Animator animator; 
     public GameObject card;
+    //Stats:
+    protected float _speed; //0.5
+    protected int _damage;
+    protected int _health;
 
-    void Start()
+    protected virtual void Start()
     {
         this._x = transform.position.x; //X AND Y NEEDS TO BE FLOATS ***
         this._y = transform.position.y;
         animator = GetComponent<Animator>();
         ChangeDirection("E");
+
+        this._speed = 0.5f;
+        this._damage = 1;
+        this._health = 10;
     }
 
     void Update()
@@ -81,7 +87,7 @@ public class EnemyController : MonoBehaviour
         }
         
     }
-    public void SpawnCharacter()
+    public virtual void SpawnEnemy()
     {
         this._x = 0;
         this._y = 540;
