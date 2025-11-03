@@ -11,9 +11,9 @@ public class EnemyController : MonoBehaviour
 {
     //base class
 
-    private float _x;
-    private float _y;
-    private string _direction = "N";// use north, south, North east, etc so we can abreviate it
+    protected float _x; //Use protected so the other class can use it properly
+    protected float _y;
+    protected string _direction = "N";// use north, south, North east, etc so we can abreviate it
     private Animator animator;
     public GameObject card;
     //Stats:
@@ -28,10 +28,9 @@ public class EnemyController : MonoBehaviour
         this._y = transform.position.y;
         animator = GetComponent<Animator>();
         ChangeDirection("E");
+        SetStats();
+        Debug.Log($"Spawned enemy with speed: {_speed}, Direction: {_direction}");
 
-        this._speed = 0.5f;
-        this._damage = 1;
-        this._health = 10;
     }
 
     void Update()
@@ -85,8 +84,16 @@ public class EnemyController : MonoBehaviour
         if (this._x >= 9)
         {
             Destroy(this.gameObject);
+            //Deal damage (damage)
         }
 
+    }
+
+    protected virtual void SetStats()
+    {
+        this._speed = 0.5f;
+        this._damage = 1;
+        this._health = 10;
     }
     public virtual void SpawnEnemy()
     {

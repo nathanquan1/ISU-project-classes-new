@@ -5,19 +5,23 @@ using UnityEngine;
 public class FastEnemyController : EnemyController
 {
     // Start is called before the first frame update
+    
     protected override void Start()
     {
-        Debug.Log("Fast Start");
         base.Start();
-        _damage = 1;
-        _health = 5;
-        _speed = 1.5f; //not working for some reason
-        
+        _x = transform.position.x;
+        _y = transform.position.y;
     }
+    
     // Update is called once per frame
     void Update()
     {
 
     }
-
+    protected override void SetStats()
+    {
+        _damage = 1;
+        _health = 5;
+        _speed = 1.5f; 
+    }
 }
