@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FastEnemyController : EnemyController
+public class AlienEnemyController : EnemyController
 {
     // Start is called before the first frame update
 
@@ -15,8 +15,8 @@ public class FastEnemyController : EnemyController
     
     protected override void SetStats()
     {
-        _damage = 1;
-        _health = 5;
-        _speed = 1.5f; 
+        _damage = 50;
+        _health = 60;
+        _speed = 0.6f; 
     }
 }

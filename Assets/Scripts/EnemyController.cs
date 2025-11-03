@@ -16,10 +16,12 @@ public class EnemyController : MonoBehaviour
     protected string _direction = "N";// use north, south, North east, etc so we can abreviate it
     private Animator animator;
     public GameObject card;
+    public Gameplay gameplay;
     //Stats:
     protected float _speed; //0.5
     protected int _damage;
     protected int _health;
+    public List<int> Enemies; //Will use to keep track of enemies on the path
 
     protected virtual void Start()
     {
@@ -85,6 +87,11 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(this.gameObject);
             //Deal damage (damage)
+            gameplay.TakeDamage(this._damage);
+        }
+        if (this._health <= 0)
+        {
+            Destroy(this.gameObject);
         }
 
     }

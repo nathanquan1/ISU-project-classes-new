@@ -9,6 +9,11 @@ public class Gameplay : MonoBehaviour
     public MenuController menuController;
     public bool GameRunning = false;
     public EnemyController enemyController;
+    public TextMeshProUGUI HealthDisplay;
+    private int Money;
+    private int Health;
+    private int Level;
+
     void Start()
     {
         
@@ -17,22 +22,28 @@ public class Gameplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameRunning)
-        {
-            //
-            enemyController.SpawnEnemy();
-
-        }
+        HealthDisplay.text = $"HP: {Health}";
+        
     }
     public void StartGame()
     {
-        //i think it needs to be static for it to be used in other file
         GameRunning = true;
+        Money = 10;
+        Health = 100;
+        Level = 1;
 
     }
     public void TakeDamage(int damage)
     {
-        
+        if (Health - damage <= 0)
+        {
+            Health = 0;
+            EndGame();
+        }
+        else
+        {
+            Health -= damage;
+        }
     }
     public void EndGame()
     {
