@@ -5,7 +5,7 @@ using UnityEngine;
 public class FastEnemyController : EnemyController
 {
     // Start is called before the first frame update
-    
+
     protected override void Start()
     {
         base.Start();
@@ -14,10 +14,12 @@ public class FastEnemyController : EnemyController
     }
     
     // Update is called once per frame
+    /*
     void Update()
     {
-
+        base.Update();
     }
+    */
     protected override void SetStats()
     {
         _damage = 1;
