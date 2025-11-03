@@ -16,14 +16,14 @@ public class Gameplay : MonoBehaviour
 
     void Start()
     {
-        
+        Health = 100;
     }
 
     // Update is called once per frame
     void Update()
     {
         HealthDisplay.text = $"HP: {Health}";
-        
+        //Debug.Log(Health);
     }
     public void StartGame()
     {

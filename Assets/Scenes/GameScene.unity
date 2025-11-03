@@ -287,7 +287,7 @@ MonoBehaviour:
   playMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
   loadoutMenu: {fileID: 0}
-  gameplay: {fileID: 0}
+  gameplay: {fileID: 2083370029}
 --- !u!4 &266222055
 Transform:
   m_ObjectHideFlags: 0
