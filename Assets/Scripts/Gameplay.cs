@@ -22,8 +22,8 @@ public class Gameplay : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "GameScene")
         {
-            Money = 10;
-            Health = 100;
+            Money = 100;
+            Health = 20;
             Level = 1;
             GameRunning = true;
         }

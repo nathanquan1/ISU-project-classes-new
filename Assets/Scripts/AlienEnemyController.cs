@@ -16,7 +16,7 @@ public class AlienEnemyController : EnemyController
     protected override void SetStats()
     {
         Debug.Log("Set Alien Stats");
-        _damage = 1;
+        _damage = 5;
         _health = 60;
         _speed = 0.6f; 
     }
