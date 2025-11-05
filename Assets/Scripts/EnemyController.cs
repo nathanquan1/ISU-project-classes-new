@@ -107,9 +107,9 @@ public class EnemyController : MonoBehaviour
 
     protected virtual void SetStats()
     {
-        this._speed = 0.5f;
-        this._damage = 1;
-        this._health = 10;
+        this._speed = 0;
+        this._damage = 0;
+        this._health = 1;
     }
 
     public virtual void SpawnEnemy()

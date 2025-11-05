@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 36571778048240468}
   - component: {fileID: 4517191048918561216}
   - component: {fileID: 4185619338425817648}
+  - component: {fileID: 5702344006967094151}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -114,9 +115,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2781552389603501716}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1d2f22f03e3c1d4e9776217d64f2e40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 2781552389603501716}
+  gameplay: {fileID: 0}
+  Enemies: 
+--- !u!114 &5702344006967094151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2781552389603501716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed53ecfdabe1194ca36b8044ddd6168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 2781552389603501716}
+  gameplay: {fileID: 0}
+  Enemies: 
