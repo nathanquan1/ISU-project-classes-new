@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor;
 
 using UnityEngine.SceneManagement;
 public class Gameplay : MonoBehaviour
@@ -26,22 +25,23 @@ public class Gameplay : MonoBehaviour
             Health = 20;
             Level = 1;
             GameRunning = true;
-            HealthDisplay.text = $"HP: {Health}";
-            MoneyDisplay.text  = $"Money: ${Money}";
-            LevelDisplay.text  = $"Level: {Level}";
         }
+        // The UI is also refreshed initially to avoid placeholder text residue.
+        if (HealthDisplay) HealthDisplay.text = $"HP: {Health}";
+        if (MoneyDisplay)  MoneyDisplay.text  = $"Money: ${Money}";
+        if (LevelDisplay)  LevelDisplay.text  = $"Level: {Level}";
     }
 
     // Update is called once per frame
     void Update()
     {
         //Debug.Log(GameRunning);
-        if (GameRunning && SceneManager.GetActiveScene().name == "GameScene")
+        // Keep the UI synchronized with the current values, regardless of whether it's in GameRunning (only in GameScene).
+        if (SceneManager.GetActiveScene().name == "GameScene")
         {
-            //Debug.Log("Game Running.");
-            HealthDisplay.text = $"HP: {Health}";
-            MoneyDisplay.text = $"Money: ${Money}";
-            LevelDisplay.text = $"Level: {Level}";
+            if (HealthDisplay) HealthDisplay.text = $"HP: {Health}";
+            if (MoneyDisplay)  MoneyDisplay.text  = $"Money: ${Money}";
+            if (LevelDisplay)  LevelDisplay.text  = $"Level: {Level}";
         }
         //Debug.Log(Health);
     }
@@ -59,9 +59,9 @@ public class Gameplay : MonoBehaviour
     }
     public void EndGame()
     {
-        if (!GameRunning) return;
+        if (!GameRunning) return;        // Prevent repeated triggering
         GameRunning = false;
-        sceneSwitcher.Homescreen();
+        if (sceneSwitcher != null) sceneSwitcher.Homescreen();
     }
     public int GetHealth()
     {
