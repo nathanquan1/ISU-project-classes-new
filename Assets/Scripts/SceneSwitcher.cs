@@ -21,7 +21,7 @@ public class SceneSwitcher : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
         //variable : public Gameplay gameplay;
-        gameplay.StartGame();
+        //gameplay.StartGame();
     }
     
     public void Homescreen()

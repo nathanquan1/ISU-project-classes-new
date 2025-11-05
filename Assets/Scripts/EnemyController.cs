@@ -93,7 +93,7 @@ public class EnemyController : MonoBehaviour
         {
             //Deal damage (damage)
             
-            Debug.Log($"Dmg : {this._damage}");
+            Debug.Log($"AN ENEMY HAS DEALT {this._damage} DMG");
             gameplay.TakeDamage(this._damage);
             Destroy(this.gameObject);
         }

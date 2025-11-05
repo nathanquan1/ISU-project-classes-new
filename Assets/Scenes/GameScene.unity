@@ -288,7 +288,6 @@ MonoBehaviour:
   playMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
   loadoutMenu: {fileID: 0}
-  gameplay: {fileID: 2083370029}
 --- !u!4 &266222055
 Transform:
   m_ObjectHideFlags: 0
@@ -1789,8 +1788,8 @@ MonoBehaviour:
   GameRunning: 0
   enemyController: {fileID: 748925079}
   HealthDisplay: {fileID: 635163883}
-  MoneyDisplay: {fileID: 0}
-  LevelDisplay: {fileID: 0}
+  MoneyDisplay: {fileID: 1325638204}
+  LevelDisplay: {fileID: 1560180272}
 --- !u!4 &2083370030
 Transform:
   m_ObjectHideFlags: 0
