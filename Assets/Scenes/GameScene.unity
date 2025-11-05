@@ -265,6 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 266222055}
   - component: {fileID: 266222054}
+  - component: {fileID: 266222056}
   m_Layer: 0
   m_Name: Menu Controller (Go back to  main)
   m_TagString: Untagged
@@ -279,7 +280,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266222053}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87817061a5cc14240b51cd136fb51d4f, type: 3}
   m_Name: 
@@ -303,6 +304,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &266222056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266222053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c900097327792c44887c8b4a3edec4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameplay: {fileID: 2083370029}
 --- !u!1 &417948142
 GameObject:
   m_ObjectHideFlags: 0

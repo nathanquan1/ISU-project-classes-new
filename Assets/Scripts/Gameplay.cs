@@ -7,7 +7,7 @@ public class Gameplay : MonoBehaviour
 {
     // Start is called before the first frame update
     public MenuController menuController;
-    public bool GameRunning = false;
+    public bool GameRunning;
     public EnemyController enemyController;
     public TextMeshProUGUI HealthDisplay;
     private int Money;
@@ -17,16 +17,21 @@ public class Gameplay : MonoBehaviour
     void Start()
     {
         Health = 100;
+        GameRunning = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        HealthDisplay.text = $"HP: {Health}";
+        if (GameRunning)
+        {
+            HealthDisplay.text = $"HP: {Health}";
+        }
         //Debug.Log(Health);
     }
     public void StartGame()
     {
+        Debug.Log("Game Started");
         GameRunning = true;
         Money = 10;
         Health = 100;
@@ -49,5 +54,9 @@ public class Gameplay : MonoBehaviour
     {
         GameRunning = false;
         //menuController.Homescreen();
+    }
+    public int GetHealth()
+    {
+        return Health;
     }
 }

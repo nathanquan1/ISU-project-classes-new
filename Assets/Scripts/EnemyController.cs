@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -29,6 +30,11 @@ public class EnemyController : MonoBehaviour
         this._x = transform.position.x; //X AND Y NEEDS TO BE FLOATS ***
         this._y = transform.position.y;
         animator = GetComponent<Animator>();
+        //IMPORTANT: (Basically the only way for the enemies to access the gameplay script)
+        if (gameplay == null) {
+            gameplay = FindObjectOfType<Gameplay>();
+            Debug.Log(gameplay);
+        }
         ChangeDirection("E");
         SetStats();
         Debug.Log($"Spawned enemy with speed: {_speed}, Direction: {_direction}");
@@ -86,6 +92,8 @@ public class EnemyController : MonoBehaviour
         if (this._x >= 9)
         {
             //Deal damage (damage)
+            
+            Debug.Log($"Dmg : {this._damage}");
             gameplay.TakeDamage(this._damage);
             Destroy(this.gameObject);
         }
