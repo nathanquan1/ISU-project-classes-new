@@ -44,70 +44,69 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        //directions
-        if (this._direction == "N")
-        {
-            this._y += this._speed * Time.deltaTime;
-        }
-        else if (this._direction == "E")
-        {
-            this._x += this._speed * Time.deltaTime;
-        }
-        else if (this._direction == "S")
-        {
-            this._y -= this._speed * Time.deltaTime;
-        }
-        else if (this._direction == "W")
-        {
-            this._x -= this._speed * Time.deltaTime;
-        }
-        transform.position = new Vector3(this._x, this._y,this._z);
+            //directions
+            if (this._direction == "N")
+            {
+                this._y += this._speed * Time.deltaTime;
+            }
+            else if (this._direction == "E")
+            {
+                this._x += this._speed * Time.deltaTime;
+            }
+            else if (this._direction == "S")
+            {
+                this._y -= this._speed * Time.deltaTime;
+            }
+            else if (this._direction == "W")
+            {
+                this._x -= this._speed * Time.deltaTime;
+            }
+            transform.position = new Vector3(this._x, this._y,this._z);
 
 
-        //PATH  
-        if (this._x >= -4.1f && this._x <= -4f) //Its a range bc if it checks for an exact value they can pass it
-        {
-            ChangeDirection("S");
-            this._z -= 0.001f; //for the layers
-        }
-        if (this._y <= -3 && this._y >= -3.2)
-        {
-            ChangeDirection("E");
-            this._z = 0;
-        }
-        if (this._x >= 0.6f && this._x < 0.7)
-        {
-            ChangeDirection("N");
-        }
-        if (this._y >= 1.1 && this._y <= 1.2)
-        {
-            ChangeDirection("E");
-        }
-        if (this._x >= 4 && this._x <= 4.1f)
-        {
-            ChangeDirection("S");
-            this._z -= 0.0001f;
-        }
-        if (this._y <= 0 && this._y >= -0.1 && this._x >= 4)
-        {
-            this._z = 0;
-            ChangeDirection("E");
-        }
-        //end of path:
-        // NEED SOME WAY TO CHECK IF PREFAB OR NOT / OR I HAVE TO MAKE NEW CRIPT FOR ENEMY SPAWNING
-        if (this._x >= 9.2f)
-        {
-            //Deal damage (damage)
-            
-            Debug.Log($"AN ENEMY HAS DEALT {this._damage} DMG");
-            gameplay.TakeDamage(this._damage);
-            Destroy(this.gameObject);
-        }
-        if (this._health <= 0)
-        {
-            Destroy(this.gameObject);
-        }
-
+            //PATH  
+            if (this._x >= -4.1f && this._x <= -4f) //Its a range bc if it checks for an exact value they can pass it
+            {
+                ChangeDirection("S");
+                this._z -= 0.001f; //for the layers
+            }
+            if (this._y <= -3 && this._y >= -3.2)
+            {
+                ChangeDirection("E");
+                this._z = 0;
+            }
+            if (this._x >= 0.6f && this._x < 0.7)
+            {
+                ChangeDirection("N");
+            }
+            if (this._y >= 1.1 && this._y <= 1.2)
+            {
+                ChangeDirection("E");
+            }
+            if (this._x >= 4 && this._x <= 4.1f)
+            {
+                ChangeDirection("S");
+                this._z -= 0.0001f;
+            }
+            if (this._y <= 0 && this._y >= -0.1 && this._x >= 4)
+            {
+                this._z = 0;
+                ChangeDirection("E");
+            }
+            //end of path:
+            // NEED SOME WAY TO CHECK IF PREFAB OR NOT / OR I HAVE TO MAKE NEW CRIPT FOR ENEMY SPAWNING
+            if (this._x >= 9.2f)
+            {
+                //Deal damage (damage)
+                
+                Debug.Log($"AN ENEMY HAS DEALT {this._damage} DMG");
+                gameplay.TakeDamage(this._damage);
+                Destroy(this.gameObject);
+            }
+            if (this._health <= 0)
+            {
+                Destroy(this.gameObject);
+            }
     }
 
     protected virtual void SetStats()

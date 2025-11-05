@@ -399,7 +399,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 748925079}
+      - m_Target: {fileID: 748925083}
         m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
         m_MethodName: SpawnEnemy
         m_Mode: 1
@@ -966,6 +966,7 @@ GameObject:
   - component: {fileID: 748925080}
   - component: {fileID: 748925081}
   - component: {fileID: 748925082}
+  - component: {fileID: 748925083}
   m_Layer: 0
   m_Name: Enemy Script
   m_TagString: Untagged
@@ -1053,6 +1054,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 1630988089446881999, guid: d195a69d4959c4543a610988005d0aaf, type: 3}
   gameplay: {fileID: 2083370029}
+  Enemies: 
+--- !u!114 &748925083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748925077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed53ecfdabe1194ca36b8044ddd6168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 2781552389603501716, guid: 62d52c8d4b9ca1742ad96860e6eae7ca, type: 3}
+  gameplay: {fileID: 0}
   Enemies: 
 --- !u!1 &918542459
 GameObject:
@@ -2368,7 +2384,7 @@ Transform:
   m_GameObject: {fileID: 2027605251}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.16, z: -10}
+  m_LocalPosition: {x: 0, y: 0.16, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
