@@ -11,7 +11,7 @@ using UnityEngine.UIElements;
 public class EnemyController : MonoBehaviour
 {
     //base class
-
+    
     protected float _x; //Use protected so the other class can use it properly
     protected float _y;
     protected string _direction = "N";// use north, south, North east, etc so we can abreviate it
@@ -26,7 +26,7 @@ public class EnemyController : MonoBehaviour
 
     protected virtual void Start()
     {
-        Debug.Log("Base Start");
+        Debug.Log($"Base Start, DMG:{this._damage}");
         this._x = transform.position.x; //X AND Y NEEDS TO BE FLOATS ***
         this._y = transform.position.y;
         animator = GetComponent<Animator>();
@@ -89,7 +89,8 @@ public class EnemyController : MonoBehaviour
             ChangeDirection("E");
         }
         //end of path:
-        if (this._x >= 9)
+        // NEED SOME WAY TO CHECK IF PREFAB OR NOT / OR I HAVE TO MAKE NEW CRIPT FOR ENEMY SPAWNING
+        if (this._x >= 9.2f)
         {
             //Deal damage (damage)
             
@@ -110,6 +111,7 @@ public class EnemyController : MonoBehaviour
         this._damage = 1;
         this._health = 10;
     }
+
     public virtual void SpawnEnemy()
     {
         this._x = 0;
@@ -117,6 +119,7 @@ public class EnemyController : MonoBehaviour
         Vector2 spawnPoint = Camera.main.ScreenToWorldPoint(new Vector2(this._x, this._y));
         GameObject newCard = Instantiate(card, spawnPoint, Quaternion.identity); //Need this to move the card
     }
+
     public void ChangeDirection(string direction)
     {
         this._direction = direction;

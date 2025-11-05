@@ -35,7 +35,7 @@ public class Gameplay : MonoBehaviour
         //Debug.Log(GameRunning);
         if (GameRunning && SceneManager.GetActiveScene().name =="GameScene")
         {
-            Debug.Log("Game Running.");
+            //Debug.Log("Game Running.");
             HealthDisplay.text = $"HP: {Health}";
             MoneyDisplay.text = $"Money: ${Money}";
             LevelDisplay.text = $"Level: {Level}";
