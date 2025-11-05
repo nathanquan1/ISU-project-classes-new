@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
     
     protected float _x; //Use protected so the other class can use it properly
     protected float _y;
+    protected float _z; //layers of enemies
     protected string _direction = "N";// use north, south, North east, etc so we can abreviate it
     private Animator animator;
     public GameObject card;
@@ -60,17 +61,19 @@ public class EnemyController : MonoBehaviour
         {
             this._x -= this._speed * Time.deltaTime;
         }
-        transform.position = new Vector2(this._x, this._y);
+        transform.position = new Vector3(this._x, this._y,this._z);
 
 
         //PATH  
         if (this._x >= -4.1f && this._x <= -4f) //Its a range bc if it checks for an exact value they can pass it
         {
             ChangeDirection("S");
+            this._z -= 0.001f; //for the layers
         }
         if (this._y <= -3 && this._y >= -3.2)
         {
             ChangeDirection("E");
+            this._z = 0;
         }
         if (this._x >= 0.6f && this._x < 0.7)
         {
@@ -83,9 +86,11 @@ public class EnemyController : MonoBehaviour
         if (this._x >= 4 && this._x <= 4.1f)
         {
             ChangeDirection("S");
+            this._z -= 0.0001f;
         }
         if (this._y <= 0 && this._y >= -0.1 && this._x >= 4)
         {
+            this._z = 0;
             ChangeDirection("E");
         }
         //end of path:
