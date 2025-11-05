@@ -33,7 +33,7 @@ public class Gameplay : MonoBehaviour
     void Update()
     {
         //Debug.Log(GameRunning);
-        if (GameRunning && SceneManager.GetActiveScene().name =="GameScene")
+        if (GameRunning && SceneManager.GetActiveScene().name == "GameScene")
         {
             //Debug.Log("Game Running.");
             HealthDisplay.text = $"HP: {Health}";
@@ -62,5 +62,9 @@ public class Gameplay : MonoBehaviour
     public int GetHealth()
     {
         return Health;
+    }
+    public void Level1()
+    {
+        
     }
 }
