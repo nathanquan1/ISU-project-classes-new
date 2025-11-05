@@ -48,6 +48,6 @@ public class Gameplay : MonoBehaviour
     public void EndGame()
     {
         GameRunning = false;
-        menuController.Homescreen();
+        //menuController.Homescreen();
     }
 }

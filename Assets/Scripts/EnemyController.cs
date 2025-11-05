@@ -85,9 +85,9 @@ public class EnemyController : MonoBehaviour
         //end of path:
         if (this._x >= 9)
         {
-            Destroy(this.gameObject);
             //Deal damage (damage)
             gameplay.TakeDamage(this._damage);
+            Destroy(this.gameObject);
         }
         if (this._health <= 0)
         {

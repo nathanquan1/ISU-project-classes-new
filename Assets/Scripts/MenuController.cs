@@ -40,16 +40,5 @@ public class MenuController : MonoBehaviour
 
         loadoutMenu.SetActive(true);
     }
-    //SWITCH SCENE:
-    public void PlayGame()
-    {
-        SceneManager.LoadScene("GameScene");
-        //variable : public Gameplay gameplay;
-        gameplay.StartGame();
-    }
-    
-    public void Homescreen()
-    {
-        SceneManager.LoadScene("MainScene");
-    }
+
 }
