@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEditor;
+
+using UnityEngine.SceneManagement;
 public class Gameplay : MonoBehaviour
 {
     // Start is called before the first frame update
-    public MenuController menuController;
+    public SceneSwitcher sceneSwitcher;
     public bool GameRunning;
     public EnemyController enemyController;
     public TextMeshProUGUI HealthDisplay;
+    public TextMeshProUGUI MoneyDisplay;
+    public TextMeshProUGUI LevelDisplay;
     private int Money;
     private int Health;
     private int Level;
@@ -23,20 +27,21 @@ public class Gameplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameRunning)
+        if (GameRunning && SceneManager.GetActiveScene().name =="GameScene")
         {
             HealthDisplay.text = $"HP: {Health}";
+            MoneyDisplay.text = $"Money: ${Money}";
+            LevelDisplay.text = $"Level: {Level}";
         }
         //Debug.Log(Health);
     }
     public void StartGame()
     {
         Debug.Log("Game Started");
-        GameRunning = true;
         Money = 10;
         Health = 100;
         Level = 1;
-
+        GameRunning = true;
     }
     public void TakeDamage(int damage)
     {
@@ -53,7 +58,7 @@ public class Gameplay : MonoBehaviour
     public void EndGame()
     {
         GameRunning = false;
-        //menuController.Homescreen();
+        sceneSwitcher.Homescreen();
     }
     public int GetHealth()
     {

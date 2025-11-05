@@ -2051,10 +2051,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068824d61893d8d4d80cd234007b6055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuController: {fileID: 1658054799}
+  sceneSwitcher: {fileID: 0}
   GameRunning: 0
   enemyController: {fileID: 0}
   HealthDisplay: {fileID: 0}
+  MoneyDisplay: {fileID: 0}
+  LevelDisplay: {fileID: 0}
 --- !u!4 &1455571758
 Transform:
   m_ObjectHideFlags: 0
@@ -2253,7 +2255,6 @@ MonoBehaviour:
   playMenu: {fileID: 53882112}
   settingsMenu: {fileID: 1448770801}
   loadoutMenu: {fileID: 1715924716}
-  gameplay: {fileID: 1455571757}
 --- !u!4 &1658054800
 Transform:
   m_ObjectHideFlags: 0

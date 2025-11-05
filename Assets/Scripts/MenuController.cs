@@ -10,7 +10,7 @@ public class MenuController : MonoBehaviour
     public GameObject settingsMenu;
     public GameObject loadoutMenu;
 
-    public Gameplay gameplay;
+    //public Gameplay gameplay;
     void Start()
     {
         OpenPlayMenu();
