@@ -26,9 +26,6 @@ public class Gameplay : MonoBehaviour
             Health = 20;
             Level = 1;
             GameRunning = true;
-            HealthDisplay.text = $"HP: {Health}";
-            MoneyDisplay.text  = $"Money: ${Money}";
-            LevelDisplay.text  = $"Level: {Level}";
         }
     }
 
@@ -59,7 +56,6 @@ public class Gameplay : MonoBehaviour
     }
     public void EndGame()
     {
-        if (!GameRunning) return;
         GameRunning = false;
         sceneSwitcher.Homescreen();
     }
