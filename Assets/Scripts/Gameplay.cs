@@ -27,7 +27,7 @@ public class Gameplay : MonoBehaviour
             Level = 1;
             GameRunning = true;
         }
-        timer = 0;
+        timer = 0; //timer used to spawn the enemies consistantly
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class Gameplay : MonoBehaviour
         if (GameRunning && SceneManager.GetActiveScene().name == "GameScene")
         {
             //Debug.Log("Game Running.");
-            HealthDisplay.text = $"HP: {Health}";
+            HealthDisplay.text = $"{Health}";
             MoneyDisplay.text = $"Money: ${Money}";
             LevelDisplay.text = $"Level: {Level}";
         }
@@ -68,10 +68,6 @@ public class Gameplay : MonoBehaviour
     }
     public void Level1()
     {
-        if (timer <1)
-        {
-            //enemyController.SpawnEnemy();
-            //import fast enemy controller + others
-        }
+        
     }
 }
