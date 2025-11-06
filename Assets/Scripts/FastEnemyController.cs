@@ -15,8 +15,10 @@ public class FastEnemyController : EnemyController
     
     protected override void SetStats()
     {
+        Debug.Log("Set Fast Stats");
         _damage = 1;
         _health = 5;
-        _speed = 1.5f; 
+        _speed = 1.6f;
+        this.spawned = true;
     }
 }

@@ -13,8 +13,11 @@ public class BasicEnemyController : EnemyController
     }
     protected override void SetStats()
     {
+        Debug.Log("Set Basic Stats");
         this._speed = 0.5f;
         this._damage = 1;
         this._health = 10;
+        this.spawned = true;
     }
+
 }

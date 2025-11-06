@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
     protected float _x; //Use protected so the other class can use it properly
     protected float _y;
     protected float _z; //layers of enemies
-    protected string _direction = "N";// use north, south, North east, etc so we can abreviate it
+    protected string _direction = "E";// use north, south, North east, etc so we can abreviate it
     private Animator animator;
     public GameObject card;
     public Gameplay gameplay;
@@ -23,7 +23,8 @@ public class EnemyController : MonoBehaviour
     protected float _speed; //0.5
     protected int _damage;
     protected int _health;
-    public List<int> Enemies; //Will use to keep track of enemies on the path
+    protected bool spawned = false;
+    static int EnemyCount; //Will use to keep track of enemy #
 
     protected virtual void Start()
     {
@@ -33,8 +34,8 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
         //IMPORTANT: (Basically the only way for the enemies to access the gameplay script)
         if (gameplay == null) {
-            gameplay = FindObjectOfType<Gameplay>();
-            Debug.Log(gameplay);
+            gameplay = FindObjectOfType<Gameplay>();//find script
+            //Debug.Log(gameplay);
         }
         ChangeDirection("E");
         SetStats();
@@ -44,84 +45,88 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-            //directions
-            if (this._direction == "N")
-            {
-                this._y += this._speed * Time.deltaTime;
-            }
-            else if (this._direction == "E")
-            {
-                this._x += this._speed * Time.deltaTime;
-            }
-            else if (this._direction == "S")
-            {
-                this._y -= this._speed * Time.deltaTime;
-            }
-            else if (this._direction == "W")
-            {
-                this._x -= this._speed * Time.deltaTime;
-            }
-            transform.position = new Vector3(this._x, this._y,this._z);
+        //directions
+        if (this._direction == "N")
+        {
+            this._y += this._speed * Time.deltaTime;
+            this._z += this._speed * Time.deltaTime * 0.001f;
+        }
+        else if (this._direction == "E")
+        {
+            this._x += this._speed * Time.deltaTime;
+            this._z = 0;
+        }
+        else if (this._direction == "S")
+        {
+            this._y -= this._speed * Time.deltaTime;
+            this._z -= this._speed * Time.deltaTime * 0.001f;
+        }
+        else if (this._direction == "W")
+        {
+            this._x -= this._speed * Time.deltaTime;
+            this._z = 0;
+        }
+        transform.position = new Vector3(this._x, this._y,this._z);
 
 
-            //PATH  
-            if (this._x >= -4.1f && this._x <= -4f) //Its a range bc if it checks for an exact value they can pass it
-            {
-                ChangeDirection("S");
-                this._z -= 0.001f; //for the layers
-            }
-            if (this._y <= -3 && this._y >= -3.2)
-            {
-                ChangeDirection("E");
-                this._z = 0;
-            }
-            if (this._x >= 0.6f && this._x < 0.7)
-            {
-                ChangeDirection("N");
-            }
-            if (this._y >= 1.1 && this._y <= 1.2)
-            {
-                ChangeDirection("E");
-            }
-            if (this._x >= 4 && this._x <= 4.1f)
-            {
-                ChangeDirection("S");
-                this._z -= 0.0001f;
-            }
-            if (this._y <= 0 && this._y >= -0.1 && this._x >= 4)
-            {
-                this._z = 0;
-                ChangeDirection("E");
-            }
-            //end of path:
-            // NEED SOME WAY TO CHECK IF PREFAB OR NOT / OR I HAVE TO MAKE NEW CRIPT FOR ENEMY SPAWNING
-            if (this._x >= 9.2f)
-            {
-                //Deal damage (damage)
-                
-                Debug.Log($"AN ENEMY HAS DEALT {this._damage} DMG");
-                gameplay.TakeDamage(this._damage);
-                Destroy(this.gameObject);
-            }
-            if (this._health <= 0)
-            {
-                Destroy(this.gameObject);
-            }
+        //PATH  
+        if (this._x >= -4.1f && this._x <= -4f) //Checks if it is inbetween the right points to turn directions
+        {
+            ChangeDirection("S");
+        }
+        if (this._y <= -3 && this._y >= -3.2)
+        {
+            ChangeDirection("E");
+        }
+        if (this._x >= 0.6f && this._x < 0.7)
+        {
+            ChangeDirection("N");
+        }
+        if (this._y >= 1.1 && this._y <= 1.2)
+        {
+            ChangeDirection("E");
+        }
+        if (this._x >= 4 && this._x <= 4.1f)
+        {
+            ChangeDirection("S");
+        }
+        if (this._y <= 0 && this._y >= -0.1 && this._x >= 4)
+        {
+            ChangeDirection("E");
+        }
+        //end of path:
+        // NEED SOME WAY TO CHECK IF PREFAB OR NOT / OR I HAVE TO MAKE NEW CRIPT FOR ENEMY SPAWNING
+        if (this._x >= 9.2f&&spawned)
+        {
+            //Deal damage (damage)
+            
+            Debug.Log($"{this._speed}AN ENEMY HAS DEALT {this._damage} DMG");
+            gameplay.TakeDamage(this._damage);
+            Destroy(this.gameObject);
+        }
+        if (this._health <= 0&&spawned)
+        {
+            Destroy(this.gameObject);
+        }//Make sure to not let this be targeted if !spawned
     }
 
     protected virtual void SetStats()
     {
+        //Debug.Log("");
         this._speed = 0;
         this._damage = 0;
         this._health = 1;
     }
 
-    public virtual void SpawnEnemy()
+    protected virtual void SpawnEnemy()
     {
+        EnemyCount += 1;
         this._x = 0;
         this._y = 540;
         Vector2 spawnPoint = Camera.main.ScreenToWorldPoint(new Vector2(this._x, this._y));
         GameObject newCard = Instantiate(card, spawnPoint, Quaternion.identity); //Need this to move the card
+        Debug.Log("SpawnEnemy();");
+        spawned = true;
     }
 
     public void ChangeDirection(string direction)
@@ -142,6 +147,10 @@ public class EnemyController : MonoBehaviour
         else if (direction == "W")
         {
             animator.Play("walk_left");
+        }
+        else
+        {
+            return;
         }
     }
     public void ChangeStats(float speed, int health, int damage)
