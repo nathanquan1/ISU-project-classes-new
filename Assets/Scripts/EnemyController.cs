@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
     //Stats:
     protected float _speed; //0.5
     protected int _damage;
-    protected int _health=1;//Default so if a glitch happens the gameobject doesnt die immediately
+    protected float _health=1;//Default so if a glitch happens the gameobject doesnt die immediately
     protected int _value;
     static int EnemyCount; //Will use to keep track of enemy #
 
@@ -109,9 +109,9 @@ public class EnemyController : MonoBehaviour
         }//Make sure to not let this be targeted if !spawned
     }
 
-    protected virtual void SetStats()
+    protected virtual void SetStats()//used to change stats between different enemy types
     {
-        //Debug.Log(""); dont change these
+        //dont change these 
         _speed = 0;
         _damage = 0;
         _health = 999;
@@ -153,10 +153,11 @@ public class EnemyController : MonoBehaviour
             return;
         }
     }
-    public void ChangeStats(float speed, int health, int damage)
+
+    protected virtual void TakeDamage(float damage)
     {
-        this._speed = speed;
-        this._health = health;
-        this._damage = damage;
+        //if touching bullet then run this for bullet's damage val
+        this._health -= damage;
+
     }
 }

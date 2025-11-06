@@ -5,7 +5,7 @@ using UnityEngine;
 public class AlienEnemyController : EnemyController
 {
     // Start is called before the first frame update
-
+    private float _defense;
     protected override void Start()
     {
         base.Start();
@@ -14,7 +14,7 @@ public class AlienEnemyController : EnemyController
         ChangeDirection("E");
         SetStats();
     }
-    
+
     protected override void SetStats()
     {
         Debug.Log("Set Alien Stats");
@@ -22,6 +22,11 @@ public class AlienEnemyController : EnemyController
         this._health = 60;
         this._speed = 0.5f;
         this._value = 30;
-        
+        this._defense = 0.7f;
+    }
+
+    protected override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage * _defense);
     }
 }
