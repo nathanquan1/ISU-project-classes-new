@@ -17,7 +17,7 @@ public class Gameplay : MonoBehaviour
     private int Money;
     private int Health;
     private int Level;
-
+    public float timer;
     void Start()
     {
         if (SceneManager.GetActiveScene().name == "GameScene")
@@ -27,11 +27,14 @@ public class Gameplay : MonoBehaviour
             Level = 1;
             GameRunning = true;
         }
+        timer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Increase timer every frame by right amt
+        timer += Time.deltaTime; 
         //Debug.Log(GameRunning);
         if (GameRunning && SceneManager.GetActiveScene().name == "GameScene")
         {
@@ -65,6 +68,10 @@ public class Gameplay : MonoBehaviour
     }
     public void Level1()
     {
-        
+        if (timer <1)
+        {
+            //enemyController.SpawnEnemy();
+            //import fast enemy controller + others
+        }
     }
 }

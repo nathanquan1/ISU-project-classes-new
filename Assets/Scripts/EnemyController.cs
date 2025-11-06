@@ -47,7 +47,7 @@ public class EnemyController : MonoBehaviour
         //directions
         if (this._direction == "N")
         {
-            this._y += this._speed * Time.deltaTime;
+            this._y += this._speed * Time.deltaTime; //Time.deltaTime means time since last frame which basically makes it the same for any fps 
             this._z += this._speed * Time.deltaTime * 0.001f;
         }
         else if (this._direction == "E")
