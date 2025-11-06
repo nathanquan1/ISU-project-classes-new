@@ -20,7 +20,7 @@ public class BasicEnemyController : EnemyController
         this._health = 10;
         this._speed = 1.00f;
         this._value = 10;
-        this.spawned = true;
+        
     }
 
 }

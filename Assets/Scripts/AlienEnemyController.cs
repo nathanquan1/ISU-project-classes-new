@@ -22,6 +22,6 @@ public class AlienEnemyController : EnemyController
         this._health = 60;
         this._speed = 0.5f;
         this._value = 30;
-        this.spawned = true;
+        
     }
 }

@@ -22,9 +22,8 @@ public class EnemyController : MonoBehaviour
     //Stats:
     protected float _speed; //0.5
     protected int _damage;
-    protected int _health;
+    protected int _health=1;//Default so if a glitch happens the gameobject doesnt die immediately
     protected int _value;
-    protected bool spawned = false;
     static int EnemyCount; //Will use to keep track of enemy #
 
     protected virtual void Start()
@@ -39,7 +38,7 @@ public class EnemyController : MonoBehaviour
             //Debug.Log(gameplay);
         }
         
-        Debug.Log($"Created enemy with speed: {_speed}, Direction: {_direction}, Spawned?:{spawned}");
+        Debug.Log($"Created enemy with speed: {_speed}, Direction: {_direction}");
 
     }
 
@@ -66,10 +65,7 @@ public class EnemyController : MonoBehaviour
             this._x -= this._speed * Time.deltaTime;
             this._z = 0;
         }
-        if (spawned)
-        {
-            transform.position = new Vector3(this._x, this._y,this._z);
-        }
+        transform.position = new Vector3(this._x, this._y,this._z);
         
         //PATH  
         if (this._x >= -4.1f && this._x <= -4f) //Checks if it is inbetween the right points to turn directions
@@ -98,7 +94,7 @@ public class EnemyController : MonoBehaviour
         }
         //end of path:
         // NEED SOME WAY TO CHECK IF PREFAB OR NOT / OR I HAVE TO MAKE NEW CRIPT FOR ENEMY SPAWNING
-        if (this._x >= 9.2f&&spawned)
+        if (this._x >= 9.2f)
         {
             //Deal damage (damage)
             
@@ -106,20 +102,20 @@ public class EnemyController : MonoBehaviour
             gameplay.TakeDamage(this._damage);
             Destroy(this.gameObject);
         }
-        if (this._health <= 0&&spawned)
+        if (this._health <= 0)
         {
+            Debug.Log("Enemy Killed");
             Destroy(this.gameObject);
         }//Make sure to not let this be targeted if !spawned
     }
 
     protected virtual void SetStats()
     {
-        //Debug.Log("");
+        //Debug.Log(""); dont change these
         _speed = 0;
         _damage = 0;
         _health = 999;
         _value = 0;
-        this.spawned = false;
     }
 
     public virtual void SpawnEnemy()
@@ -131,7 +127,6 @@ public class EnemyController : MonoBehaviour
         Vector2 spawnPoint = Camera.main.ScreenToWorldPoint(new Vector2(this._x, this._y));
         GameObject newCard = Instantiate(card, spawnPoint, Quaternion.identity); //Need this to move the card
         Debug.Log("SpawnEnemy();");
-        this.spawned = true;
     }
 
     public void ChangeDirection(string direction)

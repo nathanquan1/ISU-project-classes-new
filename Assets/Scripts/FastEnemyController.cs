@@ -22,7 +22,7 @@ public class FastEnemyController : EnemyController
         this._health = 5;
         this._speed = 1.5f;
         this._value = 20;
-        this.spawned = true;
+        
 
     }
     public override void SpawnEnemy()
