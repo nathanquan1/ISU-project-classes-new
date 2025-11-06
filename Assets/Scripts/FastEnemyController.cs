@@ -9,16 +9,25 @@ public class FastEnemyController : EnemyController
     protected override void Start()
     {
         base.Start();
-        _x = transform.position.x;
-        _y = transform.position.y;
+        this._x = transform.position.x;
+        this._y = transform.position.y;
+        ChangeDirection("E");
+        SetStats();
     }
-    
+
     protected override void SetStats()
     {
         Debug.Log("Set Fast Stats");
-        _damage = 1;
-        _health = 5;
-        _speed = 1.6f;
+        this._damage = 1;
+        this._health = 5;
+        this._speed = 1.6f;
         this.spawned = true;
+
+    }
+    public override void SpawnEnemy()
+    {
+        //this.spawned = true;
+        base.SpawnEnemy();
+        
     }
 }

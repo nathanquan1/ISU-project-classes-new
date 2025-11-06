@@ -9,16 +9,18 @@ public class AlienEnemyController : EnemyController
     protected override void Start()
     {
         base.Start();
-        _x = transform.position.x;
-        _y = transform.position.y;
+        this._x = transform.position.x;
+        this._y = transform.position.y;
+        ChangeDirection("E");
+        SetStats();
     }
     
     protected override void SetStats()
     {
         Debug.Log("Set Alien Stats");
-        _damage = 0;
-        _health = 60;
-        _speed = 0.6f;
+        this._damage = 1;
+        this._health = 60;
+        this._speed = 0.6f;
         this.spawned = true;
     }
 }

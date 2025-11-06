@@ -121,4 +121,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 2781552389603501716}
   gameplay: {fileID: 0}
-  Enemies: 

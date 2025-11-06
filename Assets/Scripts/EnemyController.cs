@@ -37,9 +37,8 @@ public class EnemyController : MonoBehaviour
             gameplay = FindObjectOfType<Gameplay>();//find script
             //Debug.Log(gameplay);
         }
-        ChangeDirection("E");
-        SetStats();
-        Debug.Log($"Spawned enemy with speed: {_speed}, Direction: {_direction}");
+        
+        Debug.Log($"Created enemy with speed: {_speed}, Direction: {_direction}, Spawned?:{spawned}");
 
     }
 
@@ -66,9 +65,11 @@ public class EnemyController : MonoBehaviour
             this._x -= this._speed * Time.deltaTime;
             this._z = 0;
         }
-        transform.position = new Vector3(this._x, this._y,this._z);
-
-
+        if (spawned)
+        {
+            transform.position = new Vector3(this._x, this._y,this._z);
+        }
+        
         //PATH  
         if (this._x >= -4.1f && this._x <= -4f) //Checks if it is inbetween the right points to turn directions
         {
@@ -100,7 +101,7 @@ public class EnemyController : MonoBehaviour
         {
             //Deal damage (damage)
             
-            Debug.Log($"{this._speed}AN ENEMY HAS DEALT {this._damage} DMG");
+            Debug.Log($"Speed:{this._speed},X:{this._x},AN ENEMY HAS DEALT {this._damage} DMG");
             gameplay.TakeDamage(this._damage);
             Destroy(this.gameObject);
         }
@@ -113,20 +114,22 @@ public class EnemyController : MonoBehaviour
     protected virtual void SetStats()
     {
         //Debug.Log("");
-        this._speed = 0;
-        this._damage = 0;
-        this._health = 1;
+        _speed = 0;
+        _damage = 0;
+        _health = 999;
+        this.spawned = false;
     }
 
-    protected virtual void SpawnEnemy()
+    public virtual void SpawnEnemy()
     {
+
         EnemyCount += 1;
         this._x = 0;
         this._y = 540;
         Vector2 spawnPoint = Camera.main.ScreenToWorldPoint(new Vector2(this._x, this._y));
         GameObject newCard = Instantiate(card, spawnPoint, Quaternion.identity); //Need this to move the card
         Debug.Log("SpawnEnemy();");
-        spawned = true;
+        this.spawned = true;
     }
 
     public void ChangeDirection(string direction)
