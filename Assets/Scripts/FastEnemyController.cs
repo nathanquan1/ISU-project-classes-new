@@ -20,7 +20,8 @@ public class FastEnemyController : EnemyController
         Debug.Log("Set Fast Stats");
         this._damage = 1;
         this._health = 5;
-        this._speed = 1.6f;
+        this._speed = 1.5f;
+        this._value = 20;
         this.spawned = true;
 
     }

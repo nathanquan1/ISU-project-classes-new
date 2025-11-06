@@ -23,6 +23,7 @@ public class EnemyController : MonoBehaviour
     protected float _speed; //0.5
     protected int _damage;
     protected int _health;
+    protected int _value;
     protected bool spawned = false;
     static int EnemyCount; //Will use to keep track of enemy #
 
@@ -117,6 +118,7 @@ public class EnemyController : MonoBehaviour
         _speed = 0;
         _damage = 0;
         _health = 999;
+        _value = 0;
         this.spawned = false;
     }
 
