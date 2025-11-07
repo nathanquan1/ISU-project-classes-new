@@ -25,7 +25,15 @@ public class TowerPlacement : MonoBehaviour
 
             towerPreview.SetActive(true);
 
-            
+            if (Input.GetMouseButton(0))
+            {
+                if (gameplay.GetMoney() >= 30)
+                {
+                    gameplay.SpendMoney(30);
+                    towerController.PlaceTower();
+                }
+                _selected = false;
+            }
         }
         else
         {

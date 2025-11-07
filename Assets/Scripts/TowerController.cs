@@ -13,6 +13,10 @@ public class TowerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+    public void PlaceTower()
+    {
+        //need prefab, also this will be inherited from probably
     }
 }

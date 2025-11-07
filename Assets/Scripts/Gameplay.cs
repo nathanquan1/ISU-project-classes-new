@@ -34,7 +34,7 @@ public class Gameplay : MonoBehaviour
     void Update()
     {
         //Increase timer every frame by right amt
-        timer += Time.deltaTime; 
+        timer += Time.deltaTime;
         //Debug.Log(GameRunning);
         if (GameRunning && SceneManager.GetActiveScene().name == "GameScene")
         {
@@ -45,6 +45,13 @@ public class Gameplay : MonoBehaviour
         }
         //Debug.Log(Health);
     }
+
+    public void Level1()
+    {
+
+    }
+    
+
     public void TakeDamage(int damage)
     {
         if (Health - damage <= 0)
@@ -66,8 +73,16 @@ public class Gameplay : MonoBehaviour
     {
         return Health;
     }
-    public void Level1()
+    public int GetMoney()
     {
-        
+        return Money;
     }
+    public void SpendMoney(int amt)
+    {
+        if (Money>amt) //checked in the other script anyways
+        {
+            Money -= amt;
+        }
+    }
+    
 }
