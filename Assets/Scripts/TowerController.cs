@@ -5,8 +5,9 @@ using UnityEngine;
 public class TowerController : MonoBehaviour
 {
     public GameObject tower;
-
+    protected float timer;
     protected float damage;
+    protected float cooldown;
     public static int TowersPlaced;
     void Start()
     {
@@ -16,7 +17,9 @@ public class TowerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        timer += Time.deltaTime;
+        //if placed && enemy touching range && timer>0 {
+        //attack + timer=0
     }
     public void PlaceTower(float x, float y)
     {
