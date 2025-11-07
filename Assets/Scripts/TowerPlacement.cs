@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ public class TowerPlacement : MonoBehaviour
     public CannonTowerController cannonTowerController;
     public MinigunTowerController minigunTowerController;
     public MissileTowerController missileTowerController;
+
+    //public bool TouchingPath;
     private bool _selected = false;
 
     //fix the issue where it can only select cannon later
@@ -34,12 +37,14 @@ public class TowerPlacement : MonoBehaviour
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             towerPreview.transform.position = mousePos;
 
+
+        
             if (Input.GetMouseButton(0)) //click
             {
                 if (gameplay.GetMoney() >= 30)
                 {
                     gameplay.SpendMoney(30);
-                    cannonTowerController.PlaceTower(mousePos.x,mousePos.y);
+                    cannonTowerController.PlaceTower(mousePos.x, mousePos.y);
                 }
                 _selected = false;
             }
