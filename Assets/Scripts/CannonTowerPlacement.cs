@@ -9,7 +9,7 @@ public class CannonTowerPlacement : TowerPlacement
     protected override void Start()
     {
         base.Start();
-        Price = 30;
+        this.Price = 30;
     }
     protected override void Place()
     {

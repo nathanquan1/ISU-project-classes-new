@@ -124,7 +124,7 @@ public class Gameplay : MonoBehaviour
     }
     public void SpendMoney(int amt)
     {
-        if (Money>amt) //checked in the other script anyways
+        if (Money>=amt) //checked in the other script anyways
         {
             Money -= amt;
         }

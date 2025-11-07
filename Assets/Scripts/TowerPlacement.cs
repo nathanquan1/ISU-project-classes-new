@@ -16,7 +16,7 @@ public class TowerPlacement : MonoBehaviour
 
     //public bool TouchingPath;
     protected bool _selected = false;
-    protected int Price = 0;//set to something or the inheriting classes wont have 
+    protected int Price;
 
     //fix the issue where it can only select cannon later
     protected virtual void togglePlacing()
@@ -42,6 +42,7 @@ public class TowerPlacement : MonoBehaviour
 
                 if (gameplay.GetMoney() >= Price)
                 {
+                    Debug.Log($"Placed tower for {Price}");
                     gameplay.SpendMoney(Price);
                     Place();
                 }
