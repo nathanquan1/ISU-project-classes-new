@@ -11,6 +11,7 @@ public class Gameplay : MonoBehaviour
     public SceneSwitcher sceneSwitcher;
     public bool GameRunning;
     public EnemyController enemyController;
+    public BasicEnemyController basicEnemyController;
     public TextMeshProUGUI HealthDisplay;
     public TextMeshProUGUI MoneyDisplay;
     public TextMeshProUGUI LevelDisplay;
@@ -44,11 +45,17 @@ public class Gameplay : MonoBehaviour
             LevelDisplay.text = $"Level: {Level}";
         }
         //Debug.Log(Health);
+
+        if (Level == 1)
+        {
+            Level1();
+        }
     }
 
     public void Level1()
     {
-
+        Level =0;
+        basicEnemyController.SpawnEnemy();
     }
     
 
