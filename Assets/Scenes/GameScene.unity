@@ -763,6 +763,8 @@ GameObject:
   - component: {fileID: 439538249}
   - component: {fileID: 439538251}
   - component: {fileID: 439538252}
+  - component: {fileID: 439538253}
+  - component: {fileID: 439538254}
   m_Layer: 0
   m_Name: Tower Scripts
   m_TagString: Untagged
@@ -786,6 +788,9 @@ MonoBehaviour:
   towerPreview: {fileID: 226472035}
   pathway: {fileID: 2027605251}
   towerController: {fileID: 439538251}
+  cannonTowerController: {fileID: 439538252}
+  minigunTowerController: {fileID: 439538253}
+  missileTowerController: {fileID: 439538254}
 --- !u!4 &439538250
 Transform:
   m_ObjectHideFlags: 0
@@ -827,6 +832,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 3113176096851376249, guid: 4db2fb78cbe4d96468c3819a8981d25d, type: 3}
+--- !u!114 &439538253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439538248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00fc01ec5d401f24f8605826f4c740c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower: {fileID: 7271420971671956765, guid: 7e82dab44ea8dad488b11d19dbb7d22c, type: 3}
+--- !u!114 &439538254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439538248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a394f20e96020408ea7b977e8b6e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower: {fileID: 8089435436231921348, guid: c2c3f9ccad1410e47b17c2f7e068d80d, type: 3}
 --- !u!1 &615267735
 GameObject:
   m_ObjectHideFlags: 0
