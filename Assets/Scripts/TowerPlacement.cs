@@ -7,7 +7,7 @@ using UnityEngine;
 public class TowerPlacement : MonoBehaviour
 {
     public Gameplay gameplay;
-    public GameObject towerPreview;
+    public GameObject towerPreview; 
     public GameObject pathway;
     public TowerController towerController;
     public CannonTowerController cannonTowerController;
@@ -15,36 +15,35 @@ public class TowerPlacement : MonoBehaviour
     public MissileTowerController missileTowerController;
 
     //public bool TouchingPath;
-    private bool _selected = false;
+    protected bool _selected = false;
+    protected int Price = 0;//set to something or the inheriting classes wont have 
 
     //fix the issue where it can only select cannon later
-    public void togglePlacing()
+    protected virtual void togglePlacing()
     {
         _selected = !_selected;
+        Debug.Log($"Tower button clicked. selected:{_selected}");
     }
-    public void Start()
+    protected virtual void Start()
     {
         towerPreview.SetActive(false);
         pathway.SetActive(false);
     }
-    public void Update()
+    protected virtual void Update()
     {
         towerPreview.SetActive(_selected); //will only show if selected
         pathway.SetActive(_selected);
-
         if (_selected)
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             towerPreview.transform.position = mousePos;
-
-
-        
             if (Input.GetMouseButton(0)) //click
             {
-                if (gameplay.GetMoney() >= 30)
+
+                if (gameplay.GetMoney() >= Price)
                 {
-                    gameplay.SpendMoney(30);
-                    cannonTowerController.PlaceTower(mousePos.x, mousePos.y);
+                    gameplay.SpendMoney(Price);
+                    Place();
                 }
                 _selected = false;
             }
@@ -54,5 +53,9 @@ public class TowerPlacement : MonoBehaviour
             towerPreview.SetActive(false);
         }
     }
-
+    protected virtual void Place()//Made this so the different buttons can inherit it for different prices+sprites
+    {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        towerController.PlaceTower(mousePos.x, mousePos.y); //default to cannon
+    }
 }
