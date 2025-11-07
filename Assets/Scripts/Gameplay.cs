@@ -59,6 +59,10 @@ public class Gameplay : MonoBehaviour
         {
             Level1();
         }
+        else if (Level ==2)
+        {
+            Level2();
+        }
     }
 
     public void Level1()
@@ -70,9 +74,24 @@ public class Gameplay : MonoBehaviour
             timer = 0;
             enemiesSpawned += 1;
         }
-        else if (enemiesSpawned >=10)
+        else if (enemiesSpawned >= 10)
         {
             //wave 1 finished
+            timer = 0;
+            Level = 2;
+        }
+    }
+    public void Level2()
+    {
+        if (enemiesSpawned < 3 && timer > 2) //1 enemy every 2 seconds (10 enemies max)
+        {
+            fastEnemyController.SpawnEnemy();
+            
+            enemiesSpawned += 1;
+        }
+        else if (enemiesSpawned >= 3)
+        {
+            //wave 2 finished
         }
     }
     
