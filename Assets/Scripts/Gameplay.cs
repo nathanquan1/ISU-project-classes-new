@@ -5,13 +5,19 @@ using TMPro;
 using UnityEditor;
 
 using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices;
 public class Gameplay : MonoBehaviour
 {
-    // Start is called before the first frame update
     public SceneSwitcher sceneSwitcher;
     public bool GameRunning;
+
     public EnemyController enemyController;
+    
     public BasicEnemyController basicEnemyController;
+    public FastEnemyController fastEnemyController;
+    public AlienEnemyController alienEnemyController;
+    
+
     public TextMeshProUGUI HealthDisplay;
     public TextMeshProUGUI MoneyDisplay;
     public TextMeshProUGUI LevelDisplay;
@@ -19,16 +25,19 @@ public class Gameplay : MonoBehaviour
     private int Health;
     private int Level;
     public float timer;
+
+    private int enemiesSpawned;
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "GameScene")
+        if (SceneManager.GetActiveScene().name == "GameScene") //In case of a glitch
         {
             Money = 100;
             Health = 20;
             Level = 1;
             GameRunning = true;
+            enemiesSpawned = 0;
         }
-        timer = 0; //timer used to spawn the enemies consistantly
+        timer = 0;
     }
 
     // Update is called once per frame
@@ -54,8 +63,12 @@ public class Gameplay : MonoBehaviour
 
     public void Level1()
     {
-        Level =0;
-        basicEnemyController.SpawnEnemy();
+        
+        if (enemiesSpawned< 10 && timer>2) //every 2 seonds might change later
+        {
+            basicEnemyController.SpawnEnemy();
+            timer = 0;
+        }
     }
     
 

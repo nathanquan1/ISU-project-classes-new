@@ -373,6 +373,9 @@ MonoBehaviour:
   playMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
   loadoutMenu: {fileID: 0}
+  MainMenuTheme: {fileID: 0}
+  sound: {fileID: 0}
+  music: {fileID: 0}
 --- !u!4 &266222055
 Transform:
   m_ObjectHideFlags: 0
@@ -1500,11 +1503,11 @@ GameObject:
   - component: {fileID: 748925078}
   - component: {fileID: 748925079}
   - component: {fileID: 748925080}
-  - component: {fileID: 748925081}
   - component: {fileID: 748925082}
   - component: {fileID: 748925083}
+  - component: {fileID: 748925084}
   m_Layer: 0
-  m_Name: Enemy Script
+  m_Name: Enemy Scripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1560,20 +1563,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &748925081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 748925077}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4578cfd94c3f91e43aa812af117b1203, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  card: {fileID: 5360121015601790905, guid: 34a7a2f98851da4418ec1d33117de34c, type: 3}
-  gameplay: {fileID: 2083370029}
 --- !u!114 &748925082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1601,6 +1590,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 2781552389603501716, guid: 62d52c8d4b9ca1742ad96860e6eae7ca, type: 3}
+  gameplay: {fileID: 2083370029}
+--- !u!114 &748925084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748925077}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4578cfd94c3f91e43aa812af117b1203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 5360121015601790905, guid: 34a7a2f98851da4418ec1d33117de34c, type: 3}
   gameplay: {fileID: 2083370029}
 --- !u!1 &918542459
 GameObject:
@@ -1979,7 +1982,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 748925081}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FastEnemyController, Assembly-CSharp
         m_MethodName: SpawnEnemy
         m_Mode: 1
@@ -3132,8 +3135,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2083370030}
   - component: {fileID: 2083370029}
+  - component: {fileID: 2083370032}
+  - component: {fileID: 2083370033}
+  - component: {fileID: 2083370031}
   m_Layer: 0
-  m_Name: Gameplay Script
+  m_Name: Gameplay Scripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3154,6 +3160,9 @@ MonoBehaviour:
   sceneSwitcher: {fileID: 266222056}
   GameRunning: 0
   enemyController: {fileID: 748925079}
+  basicEnemyController: {fileID: 2083370033}
+  fastEnemyController: {fileID: 2083370032}
+  alienEnemyController: {fileID: 2083370031}
   HealthDisplay: {fileID: 635163883}
   MoneyDisplay: {fileID: 1325638204}
   LevelDisplay: {fileID: 1560180272}
@@ -3173,6 +3182,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2083370031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083370028}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef8b3252af60a9479aa86c0b77147a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 1630988089446881999, guid: d195a69d4959c4543a610988005d0aaf, type: 3}
+  gameplay: {fileID: 2083370029}
+--- !u!114 &2083370032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083370028}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4578cfd94c3f91e43aa812af117b1203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 5360121015601790905, guid: 34a7a2f98851da4418ec1d33117de34c, type: 3}
+  gameplay: {fileID: 2083370029}
+--- !u!114 &2083370033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083370028}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed53ecfdabe1194ca36b8044ddd6168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 2781552389603501716, guid: 62d52c8d4b9ca1742ad96860e6eae7ca, type: 3}
+  gameplay: {fileID: 2083370029}
 --- !u!1 &2117602863
 GameObject:
   m_ObjectHideFlags: 0
