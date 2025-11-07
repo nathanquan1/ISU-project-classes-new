@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class TowerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject tower;
+
+    protected float damage;
+    public static int TowersPlaced;
     void Start()
     {
         
@@ -15,8 +18,11 @@ public class TowerController : MonoBehaviour
     {
 
     }
-    public void PlaceTower()
+    public void PlaceTower(float x, float y)
     {
+        Debug.Log($"{x},{y}");
         //need prefab, also this will be inherited from probably
+        TowersPlaced += 1;
+        GameObject newTower = Instantiate(tower, new Vector2(x,y), Quaternion.identity); 
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TowerPlacement : MonoBehaviour
@@ -33,7 +34,7 @@ public class TowerPlacement : MonoBehaviour
                 if (gameplay.GetMoney() >= 30)
                 {
                     gameplay.SpendMoney(30);
-                    towerController.PlaceTower();
+                    towerController.PlaceTower(mousePos.x,mousePos.y);
                 }
                 _selected = false;
             }
