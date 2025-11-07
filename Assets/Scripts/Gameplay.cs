@@ -68,6 +68,7 @@ public class Gameplay : MonoBehaviour
         {
             basicEnemyController.SpawnEnemy();
             timer = 0;
+            enemiesSpawned += 1;
         }
     }
     
