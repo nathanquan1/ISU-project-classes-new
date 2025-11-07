@@ -1,12 +1,12 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerController : MonoBehaviour
 {
     public GameObject tower;
-
     protected float damage;
+    public int speed;
     public static int TowersPlaced;
     void Start()
     {
@@ -28,6 +28,11 @@ public class TowerController : MonoBehaviour
     }
     protected virtual void SetStats()
     {
-        damage = 0;
+        damage = 4;
+    }
+    public void HitEnemy(EnemyController enemy)
+    {
+        enemy._health -= damage;
+
     }
 }
