@@ -19,7 +19,7 @@ public class TowerPlacement : MonoBehaviour
     protected int Price;
 
     //fix the issue where it can only select cannon later
-    protected virtual void togglePlacing()
+    public void togglePlacing()
     {
         _selected = !_selected;
         Debug.Log($"Tower button clicked. selected:{_selected}");
