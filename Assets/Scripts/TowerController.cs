@@ -21,8 +21,13 @@ public class TowerController : MonoBehaviour
     public void PlaceTower(float x, float y)
     {
         Debug.Log($"{x},{y}");
-        //need prefab, also this will be inherited from probably
         TowersPlaced += 1;
-        GameObject newTower = Instantiate(tower, new Vector2(x,y), Quaternion.identity); 
+        GameObject newTower = Instantiate(tower, new Vector2(x, y), Quaternion.identity);
+        SetStats();
+
+    }
+    protected virtual void SetStats()
+    {
+        damage = 0;
     }
 }
