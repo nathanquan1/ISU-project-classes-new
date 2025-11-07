@@ -44,6 +44,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        //if touching cannonbullet takedamage cannon.getdamage
         //directions
         if (this._direction == "N")
         {
@@ -158,6 +159,5 @@ public class EnemyController : MonoBehaviour
     {
         //if touching bullet then run this for bullet's damage val
         this._health -= damage;
-
     }
 }
