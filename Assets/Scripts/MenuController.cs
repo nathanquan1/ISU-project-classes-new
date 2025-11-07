@@ -22,7 +22,7 @@ public class MenuController : MonoBehaviour
 
         music.PlayOneShot(MainMenuTheme); // Music looped
         music.volume = 0.5f;
-        sound.volume = 0.5f;
+        sound.volume = 0.5f;//sound effects not added yet
     }
 
     // Update is called once per frame

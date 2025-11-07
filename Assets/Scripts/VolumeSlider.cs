@@ -11,7 +11,7 @@ public class SettingsMenu : MonoBehaviour
 
     void Start()
     {
-        //Sets volume to the slider volume level by calling the setVolume function in cookie_script
+        //Sets volume to the slider volume level by calling the setVolume function
         Volume.onValueChanged.AddListener(MenuController.SetVolume);
         VolumeText.text = "Volume: " + Mathf.RoundToInt(MenuController.music.volume*100).ToString()+"%";
     }
