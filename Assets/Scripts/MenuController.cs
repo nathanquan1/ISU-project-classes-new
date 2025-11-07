@@ -21,8 +21,8 @@ public class MenuController : MonoBehaviour
         OpenPlayMenu();
 
         music.PlayOneShot(MainMenuTheme); // Music looped
-        music.volume = 0.0f;
-        sound.volume = 0.0f;
+        music.volume = 0.5f;
+        sound.volume = 0.5f;
     }
 
     // Update is called once per frame
