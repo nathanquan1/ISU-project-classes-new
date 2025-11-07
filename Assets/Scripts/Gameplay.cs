@@ -55,7 +55,7 @@ public class Gameplay : MonoBehaviour
         }
         //Debug.Log(Health);
 
-        if (Level == 1)
+        if (Level == 1 &&timer>5) //timer>5 so it doesnt start the game right after you press play
         {
             Level1();
         }
