@@ -6,6 +6,7 @@ public class TowerPlacement : MonoBehaviour
 {
     public Gameplay gameplay;
     public GameObject towerPreview;
+    public GameObject pathway;
     public TowerController towerController;
     private bool _selected = false;
     public void togglePlacing()
@@ -15,17 +16,19 @@ public class TowerPlacement : MonoBehaviour
     public void Start()
     {
         towerPreview.SetActive(false);
+        pathway.SetActive(false);
     }
     public void Update()
     {
+        towerPreview.SetActive(_selected); //will only show if selected
+        pathway.SetActive(_selected);
+
         if (_selected)
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             towerPreview.transform.position = mousePos;
 
-            towerPreview.SetActive(true);
-
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0)) //click
             {
                 if (gameplay.GetMoney() >= 30)
                 {

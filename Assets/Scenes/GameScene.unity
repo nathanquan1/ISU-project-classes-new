@@ -783,6 +783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameplay: {fileID: 2083370029}
   towerPreview: {fileID: 226472035}
+  pathway: {fileID: 2027605251}
   towerController: {fileID: 439538251}
 --- !u!4 &439538250
 Transform:
@@ -798,6 +799,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 226472037}
+  - {fileID: 2027605252}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &439538251
@@ -2944,8 +2946,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027605251}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.16, z: -100}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.05597709, y: 0.061541714, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2956,7 +2958,7 @@ Transform:
   - {fileID: 1093193503}
   - {fileID: 702357076}
   - {fileID: 430448456}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 439538250}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2083370028
 GameObject:
@@ -3093,6 +3095,5 @@ SceneRoots:
   - {fileID: 748925078}
   - {fileID: 2083370030}
   - {fileID: 266222055}
-  - {fileID: 2027605252}
   - {fileID: 615267738}
   - {fileID: 439538250}
