@@ -106,6 +106,8 @@ public class EnemyController : MonoBehaviour
         if (this._health <= 0)
         {
             Debug.Log("Enemy Killed");
+            // Kill Rewards: Use SpendMoney to pass negative numbers to increase rewards, avoiding modifications to Gameplay.cs.
+            if (gameplay != null) { gameplay.SpendMoney(-_value); }
             Destroy(this.gameObject);
         }//Make sure to not let this be targeted if !spawned
     }
@@ -159,5 +161,11 @@ public class EnemyController : MonoBehaviour
     {
         //if touching bullet then run this for bullet's damage val
         this._health -= damage;
+    }
+
+    // publicly available attack interface
+    public void ApplyDamage(float damage)
+    {
+        TakeDamage(damage);
     }
 }
