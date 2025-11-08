@@ -11,10 +11,10 @@ public class TowerController : MonoBehaviour
     public static int TowersPlaced;
 
  
-    [SerializeField] protected float range = 3.5f;               // range
-    [SerializeField] protected float fireRate = 1.0f;            // Number of launches per second
-    [SerializeField] protected GameObject bulletPrefab;          // Bullet Prefab
-    [SerializeField] protected float bulletSpeed = 6f;           // Bullet velocity (world units/second)
+    [SerializeField] protected float range = 3.5f;//tower range
+    [SerializeField] protected float fireRate = 1.0f;//Number of launches per second
+    [SerializeField] protected GameObject bulletPrefab;
+    [SerializeField] protected float bulletSpeed = 6f;//Bullet speed
 
     private float _cooldownTimer = 0f;
 

@@ -694,6 +694,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 0}
+  range: 3.5
+  fireRate: 1
+  bulletPrefab: {fileID: 0}
+  bulletSpeed: 6
 --- !u!114 &439538252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,6 +711,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 3113176096851376249, guid: 4db2fb78cbe4d96468c3819a8981d25d, type: 3}
+  range: 3.5
+  fireRate: 1
+  bulletPrefab: {fileID: 5739113426802845567, guid: 4533010fbd32d574a8d06415759c810e, type: 3}
+  bulletSpeed: 6
 --- !u!114 &439538253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -720,6 +728,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 7271420971671956765, guid: 7e82dab44ea8dad488b11d19dbb7d22c, type: 3}
+  range: 3.5
+  fireRate: 1
+  bulletPrefab: {fileID: 1897224880140568269, guid: 11b598fc28ab69c4e8160183c75982fd, type: 3}
+  bulletSpeed: 6
 --- !u!114 &439538254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -733,6 +745,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 8089435436231921348, guid: c2c3f9ccad1410e47b17c2f7e068d80d, type: 3}
+  range: 3.5
+  fireRate: 1
+  bulletPrefab: {fileID: 5482136240283890492, guid: 208d9a7f2a279f64298f095e80e5de76, type: 3}
+  bulletSpeed: 6
 --- !u!114 &439538255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1371,6 +1387,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 1630988089446881999, guid: d195a69d4959c4543a610988005d0aaf, type: 3}
   gameplay: {fileID: 2083370029}
+  _cfgDamage: 3
+  _cfgHealth: 60
+  _cfgSpeed: 0.5
+  _cfgValue: 30
+  _cfgDefense: 0.7
 --- !u!114 &748925083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1385,6 +1406,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 2781552389603501716, guid: 62d52c8d4b9ca1742ad96860e6eae7ca, type: 3}
   gameplay: {fileID: 2083370029}
+  _cfgDamage: 2
+  _cfgHealth: 10
+  _cfgSpeed: 1
+  _cfgValue: 10
 --- !u!114 &748925084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1399,6 +1424,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 5360121015601790905, guid: 34a7a2f98851da4418ec1d33117de34c, type: 3}
   gameplay: {fileID: 2083370029}
+  _cfgDamage: 1
+  _cfgHealth: 5
+  _cfgSpeed: 1.5
+  _cfgValue: 20
 --- !u!1 &918542459
 GameObject:
   m_ObjectHideFlags: 0
@@ -2528,6 +2557,7 @@ Transform:
   - {fileID: 2027605252}
   - {fileID: 226472037}
   - {fileID: 1391109964}
+  - {fileID: 1969345725}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1560180270
@@ -3126,13 +3156,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969345723}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.75, y: -3.98, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.8363323, y: -3.6031814, z: -0.039639182}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1041786622}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1460225468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2001827705
 GameObject:
@@ -3327,6 +3357,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 1630988089446881999, guid: d195a69d4959c4543a610988005d0aaf, type: 3}
   gameplay: {fileID: 2083370029}
+  _cfgDamage: 3
+  _cfgHealth: 60
+  _cfgSpeed: 0.5
+  _cfgValue: 30
+  _cfgDefense: 0.7
 --- !u!114 &2083370032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3341,6 +3376,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 5360121015601790905, guid: 34a7a2f98851da4418ec1d33117de34c, type: 3}
   gameplay: {fileID: 2083370029}
+  _cfgDamage: 1
+  _cfgHealth: 5
+  _cfgSpeed: 1.5
+  _cfgValue: 20
 --- !u!114 &2083370033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3355,6 +3394,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 2781552389603501716, guid: 62d52c8d4b9ca1742ad96860e6eae7ca, type: 3}
   gameplay: {fileID: 2083370029}
+  _cfgDamage: 2
+  _cfgHealth: 10
+  _cfgSpeed: 1
+  _cfgValue: 10
 --- !u!1 &2117602863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3442,4 +3485,3 @@ SceneRoots:
   - {fileID: 615267738}
   - {fileID: 439538250}
   - {fileID: 1460225468}
-  - {fileID: 1969345725}
