@@ -185,7 +185,10 @@ public class Gameplay : MonoBehaviour
                 redEnemyController.SpawnEnemy();
             }
         }
-        else
+        else if (timer >=20)
+        {
+            //done
+        }
     }
 
 }
