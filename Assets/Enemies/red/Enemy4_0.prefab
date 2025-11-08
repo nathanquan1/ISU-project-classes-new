@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4402943795248046141}
   - component: {fileID: 9037070642237287301}
+  - component: {fileID: 7313350026638398118}
   - component: {fileID: 1901499995617195480}
   m_Layer: 0
   m_Name: Enemy4_0
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 590520455, guid: f3bbd17dd70f2cb44a0b39fd146d32d1, type: 3}
+  m_Sprite: {fileID: 1999527596, guid: f3bbd17dd70f2cb44a0b39fd146d32d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,6 +86,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7313350026638398118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753454625695032848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be9cc510bb4896042b54fa22a8305661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 0}
+  gameplay: {fileID: 0}
+  isSpawned: 0
 --- !u!95 &1901499995617195480
 Animator:
   serializedVersion: 5

@@ -16,7 +16,7 @@ public class Gameplay : MonoBehaviour
     public BasicEnemyController basicEnemyController;
     public FastEnemyController fastEnemyController;
     public AlienEnemyController alienEnemyController;
-    
+    public RedEnemyController redEnemyController;
 
     public TextMeshProUGUI HealthDisplay;
     public TextMeshProUGUI MoneyDisplay;

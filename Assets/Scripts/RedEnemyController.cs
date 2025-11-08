@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FastEnemyController : EnemyController
+public class RedEnemyController : EnemyController
 {
     // Start is called before the first frame update
 
@@ -17,11 +17,10 @@ public class FastEnemyController : EnemyController
 
     protected override void SetStats()
     {
-        Debug.Log("Set Fast Stats");
-        this._damage = 1;
-        this._health = 5;
-        this._speed = 1.5f;
-        this._value = 15;
+        this._damage = 5;
+        this._health = 10;
+        this._speed = 0.3f;
+        this._value = 50;
     }
 
     public override void SpawnEnemy()

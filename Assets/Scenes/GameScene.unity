@@ -373,7 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
-  loadoutMenu: {fileID: 0}
+  helpMenu: {fileID: 0}
   MainMenuTheme: {fileID: 0}
   sound: {fileID: 0}
   music: {fileID: 0}
@@ -1301,6 +1301,7 @@ GameObject:
   - component: {fileID: 748925078}
   - component: {fileID: 748925079}
   - component: {fileID: 748925080}
+  - component: {fileID: 748925085}
   - component: {fileID: 748925082}
   - component: {fileID: 748925083}
   - component: {fileID: 748925084}
@@ -1405,6 +1406,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 5360121015601790905, guid: 34a7a2f98851da4418ec1d33117de34c, type: 3}
+  gameplay: {fileID: 2083370029}
+  isSpawned: 0
+--- !u!114 &748925085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748925077}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be9cc510bb4896042b54fa22a8305661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 753454625695032848, guid: 3b4d39c90f43fa941a1b8242a9b2e130, type: 3}
   gameplay: {fileID: 2083370029}
   isSpawned: 0
 --- !u!1 &918542459
@@ -3275,6 +3291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2083370030}
   - component: {fileID: 2083370029}
+  - component: {fileID: 2083370034}
   - component: {fileID: 2083370032}
   - component: {fileID: 2083370033}
   - component: {fileID: 2083370031}
@@ -3303,6 +3320,7 @@ MonoBehaviour:
   basicEnemyController: {fileID: 2083370033}
   fastEnemyController: {fileID: 2083370032}
   alienEnemyController: {fileID: 2083370031}
+  redEnemyController: {fileID: 7313350026638398118, guid: 3b4d39c90f43fa941a1b8242a9b2e130, type: 3}
   HealthDisplay: {fileID: 635163883}
   MoneyDisplay: {fileID: 1325638204}
   LevelDisplay: {fileID: 1560180272}
@@ -3365,6 +3383,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 2781552389603501716, guid: 62d52c8d4b9ca1742ad96860e6eae7ca, type: 3}
+  gameplay: {fileID: 2083370029}
+  isSpawned: 0
+--- !u!114 &2083370034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083370028}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be9cc510bb4896042b54fa22a8305661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 753454625695032848, guid: 3b4d39c90f43fa941a1b8242a9b2e130, type: 3}
   gameplay: {fileID: 2083370029}
   isSpawned: 0
 --- !u!1 &2117602863
