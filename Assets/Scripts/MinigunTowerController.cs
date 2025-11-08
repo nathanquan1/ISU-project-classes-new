@@ -11,7 +11,7 @@ public class MinigunTowerController : TowerController
         Debug.Log("Set MG Stats");
         damage = 0.5f;
         fireRate = 0.1f;//5dps
-        range = 3.0f;
+        range = 2.8f;
         bulletSpeed = 9f;
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+
 //using System.Numerics;
 using UnityEngine;
 
@@ -11,15 +12,14 @@ public class TowerController : MonoBehaviour
     public static int TowersPlaced;
     protected float _x;
     protected float _y;
-
+    protected float _angle;
  
-    protected float range = 3.5f;//tower range
-    protected float fireRate = 1.0f;//Number of launches per second
+    protected float range;//tower range
+    protected float fireRate;//Number of launches per second
     public GameObject bulletPrefab;
-    protected float bulletSpeed = 6f;//Bullet speed
+    protected float bulletSpeed;//Bullet speed
 
-    protected float _cooldownTimer = 0f;
-
+    protected float _cooldownTimer;
     void Start()
     {
         SetStats();
@@ -35,15 +35,20 @@ public class TowerController : MonoBehaviour
         //attack + timer=0
 
         // Automatic enemy detection + cooldown assessment + firing
-        if (_cooldownTimer >= fireRate && bulletPrefab != null)
+        if (_cooldownTimer >= fireRate&& bulletPrefab!=null)
         {
             EnemyController target = SelectFrontMostTargetInRange();
+
             if (target != null)
             {
+                //fire at enemy
                 FireAt(target);
                 _cooldownTimer = 0f;
+
             }
         }
+
+
     }
 
     public void PlaceTower(float x, float y)
@@ -81,7 +86,7 @@ public class TowerController : MonoBehaviour
         {
             if (e == null) continue;
             Vector3 ep = e.transform.position; //ep= enemyposition
-            // Range judgment
+            //Range judgment
             if (Vector3.Distance(myPos, ep) > range) continue;
 
             float score = Mathf.Abs(goalX - ep.x); //end point x value - enemyposition x value
@@ -96,23 +101,28 @@ public class TowerController : MonoBehaviour
         return best;
     }
 
-    // Instantiate bullets
+    //Instantiate bullets
     protected void FireAt(EnemyController target)
     {
         if (target == null) return;
-        if (bulletPrefab == null) return;
 
         //Bullet spawn point
         Vector3 towerPos = transform.position;//created from placed tower
         GameObject go = Instantiate(bulletPrefab, towerPos, Quaternion.identity);
 
-        // Straight-line bullets: Lock onto the target's position at the moment of firing.
+        //Lock onto the target's current position when bullet fired
         Vector3 lockPos = target.transform.position;
-
+        
         BulletController bc = go.GetComponent<BulletController>();
         if (bc == null) bc = go.AddComponent<BulletController>(); // To prevent scripts from being installed
         bc.Init(lockPos, damage, bulletSpeed, target);
-
         //target.ApplyDamage(damage);
+
+
+        //rotate when firing
+        Vector3 direction = target.transform.position - transform.position; //difference in coordinates
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; //Finds angle towards target
+        Quaternion rotate = Quaternion.Euler(0, 0, angle+270); //rotate an extra 270
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotate, 360); //max 360
     }
 }

@@ -11,7 +11,7 @@ public class CannonTowerController : TowerController
         Debug.Log("Set Cannon Stats");
         damage = 3;//1dps
         fireRate = 3;
-        range = 3.5f;
+        range = 3.2f;
         bulletSpeed = 7f;
     }
 }
