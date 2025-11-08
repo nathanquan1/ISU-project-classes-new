@@ -10,9 +10,7 @@ public class Gameplay : MonoBehaviour
 {
     public SceneSwitcher sceneSwitcher;
     public bool GameRunning;
-
     public EnemyController enemyController;
-    
     public BasicEnemyController basicEnemyController;
     public FastEnemyController fastEnemyController;
     public AlienEnemyController alienEnemyController;
@@ -26,6 +24,9 @@ public class Gameplay : MonoBehaviour
     private int Level;
     public float timer;
     private int enemiesSpawned;
+    public AudioClip GameSceneTheme;
+    public AudioSource sound;
+    public AudioSource music;
 
     void Start()
     {
@@ -38,6 +39,11 @@ public class Gameplay : MonoBehaviour
             enemiesSpawned = 0;
         }
         timer = 0;
+
+        float volume = PlayerPrefs.GetFloat("Volume", 0.5f);
+        music.volume = volume;
+        sound.volume = volume;
+        music.PlayOneShot(GameSceneTheme); // Music looped
     }
 
     // Update is called once per frame
@@ -120,7 +126,7 @@ public class Gameplay : MonoBehaviour
                 enemiesSpawned += 1;
             }
         }
-        else if (timer >= 35)//wait 35 seconds after all enemies spawned
+        else if (timer >= 10) //wait 10 seconds after all enemies spawned
         {
             //wave 1 finished
             Debug.Log("wave 1 finished");
@@ -167,7 +173,7 @@ public class Gameplay : MonoBehaviour
                 }
             }
         }
-        else if (timer>=20)
+        else if (timer>=10)
         {
             Level = 4;
             enemiesSpawned = 0;

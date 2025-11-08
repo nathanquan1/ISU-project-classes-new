@@ -2219,10 +2219,14 @@ MonoBehaviour:
   basicEnemyController: {fileID: 0}
   fastEnemyController: {fileID: 0}
   alienEnemyController: {fileID: 0}
+  redEnemyController: {fileID: 0}
   HealthDisplay: {fileID: 0}
   MoneyDisplay: {fileID: 0}
   LevelDisplay: {fileID: 0}
   timer: 0
+  GameSceneTheme: {fileID: 8300000, guid: 7c69a4b46cd6e1442b3c0957b51ea1a9, type: 3}
+  sound: {fileID: 1658054803}
+  music: {fileID: 1658054803}
 --- !u!4 &1455571758
 Transform:
   m_ObjectHideFlags: 0

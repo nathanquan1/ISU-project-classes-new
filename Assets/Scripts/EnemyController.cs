@@ -26,6 +26,8 @@ public class EnemyController : MonoBehaviour
     protected int _value;
     public bool isSpawned = false; // true for runtime spawned enemies; template objects remain false
     static int EnemyCount; //Will use to keep track of enemy #
+    public AudioSource sound;
+    public AudioClip HitSound;
 
     protected virtual void Start()
     {
@@ -161,6 +163,7 @@ public class EnemyController : MonoBehaviour
     {
         //if touching bullet then run this for bullet's damage val
         this._health -= damage;
+        sound.PlayOneShot(HitSound); // Plays a sound when hit
     }
 
     //Method that can be used from other scripts

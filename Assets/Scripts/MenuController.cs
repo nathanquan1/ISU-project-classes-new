@@ -20,9 +20,11 @@ public class MenuController : MonoBehaviour
     {
         OpenPlayMenu();
 
+        float savedVolume = PlayerPrefs.GetFloat("Volume", 0.5f);
+        music.volume = savedVolume;
+        sound.volume = savedVolume; // Sound effects not added yet
+
         music.PlayOneShot(MainMenuTheme); // Music looped
-        music.volume = 0.5f;
-        sound.volume = 0.5f;//sound effects not added yet
     }
 
     // Update is called once per frame
@@ -54,6 +56,9 @@ public class MenuController : MonoBehaviour
     {
         music.volume = value;
         sound.volume = value;
+
+        PlayerPrefs.SetFloat("Volume", value);
+        PlayerPrefs.Save();
     }
 
 
