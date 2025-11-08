@@ -10,7 +10,7 @@ public class MenuController : MonoBehaviour
 {
     public GameObject playMenu;
     public GameObject settingsMenu;
-    public GameObject loadoutMenu;
+    public GameObject helpMenu;
     public AudioClip MainMenuTheme;
     public AudioSource sound;
     public AudioSource music;
@@ -35,7 +35,7 @@ public class MenuController : MonoBehaviour
     {
         playMenu.SetActive(true);
         settingsMenu.SetActive(false);
-        loadoutMenu.SetActive(false);
+        helpMenu.SetActive(false);
     }
     public void ToggleSettings()
     {
@@ -47,7 +47,7 @@ public class MenuController : MonoBehaviour
         settingsMenu.SetActive(false);
         playMenu.SetActive(false);
 
-        loadoutMenu.SetActive(true);
+        helpMenu.SetActive(true);
     }
 
     public void SetVolume(float value)
