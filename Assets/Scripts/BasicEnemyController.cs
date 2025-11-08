@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class BasicEnemyController : EnemyController
 {
-    // Start is called before the first frame update
-    [SerializeField] private int _cfgDamage = 2;
-    [SerializeField] private float _cfgHealth = 10f;
-    [SerializeField] private float _cfgSpeed = 1.00f;
-    [SerializeField] private int _cfgValue = 10;
+
 
     protected override void Start()
     {
@@ -21,9 +17,9 @@ public class BasicEnemyController : EnemyController
     protected override void SetStats()
     {
         Debug.Log("Set Basic Stats");
-        this._damage = _cfgDamage;
-        this._health = _cfgHealth;
-        this._speed = _cfgSpeed;
-        this._value = _cfgValue;
+        this._damage = 2;
+        this._health = 10;
+        this._speed = 1;
+        this._value = 10;
     }
 }

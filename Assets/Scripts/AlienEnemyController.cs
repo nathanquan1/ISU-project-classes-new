@@ -7,12 +7,6 @@ public class AlienEnemyController : EnemyController
     // Start is called before the first frame update
     private float _defense;
 
-    [SerializeField] private int _cfgDamage = 3;
-    [SerializeField] private float _cfgHealth = 60f;
-    [SerializeField] private float _cfgSpeed = 0.5f;
-    [SerializeField] private int _cfgValue = 30;
-    [SerializeField] private float _cfgDefense = 0.7f;
-
     protected override void Start()
     {
         base.Start();
@@ -25,11 +19,11 @@ public class AlienEnemyController : EnemyController
     protected override void SetStats()
     {
         Debug.Log("Set Alien Stats");
-        this._damage = _cfgDamage;
-        this._health = _cfgHealth;
-        this._speed = _cfgSpeed;
-        this._value = _cfgValue;
-        this._defense = _cfgDefense;
+        this._damage = 3;
+        this._health = 60;
+        this._speed = 0.5f;
+        this._value = 30;
+        this._defense = 0.7f;
     }
 
     protected override void TakeDamage(float damage)

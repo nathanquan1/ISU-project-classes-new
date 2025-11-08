@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 0}
+  bulletPrefab: {fileID: 0}
 --- !u!114 &8993229180193081524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,3 +198,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 0}
+  bulletPrefab: {fileID: 5482136240283890492, guid: 208d9a7f2a279f64298f095e80e5de76, type: 3}

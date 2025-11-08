@@ -100,10 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 0}
-  range: 3.5
-  fireRate: 1
-  bulletPrefab: {fileID: 0}
-  bulletSpeed: 6
+  bulletPrefab: {fileID: 5739113426802845567, guid: 4533010fbd32d574a8d06415759c810e, type: 3}
 --- !u!114 &8583925719691828616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,10 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 0}
-  range: 3.5
-  fireRate: 1
   bulletPrefab: {fileID: 0}
-  bulletSpeed: 6
 --- !u!1 &7580402865973586136
 GameObject:
   m_ObjectHideFlags: 0

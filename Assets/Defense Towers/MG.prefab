@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 0}
+  bulletPrefab: {fileID: 0}
 --- !u!114 &9151023819823012032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 0}
+  bulletPrefab: {fileID: 1897224880140568269, guid: 11b598fc28ab69c4e8160183c75982fd, type: 3}
 --- !u!1 &7439961457943177869
 GameObject:
   m_ObjectHideFlags: 0

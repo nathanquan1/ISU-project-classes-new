@@ -9,5 +9,8 @@ public class MinigunTowerController : TowerController
     protected override void SetStats()
     {
         damage = 1;
+        fireRate = 4.0f;
+        range = 3.0f;
+        bulletSpeed = 8f;
     }
 }

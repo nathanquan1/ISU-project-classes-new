@@ -5,10 +5,6 @@ using UnityEngine;
 public class FastEnemyController : EnemyController
 {
     // Start is called before the first frame update
-    [SerializeField] private int _cfgDamage = 1;
-    [SerializeField] private float _cfgHealth = 5f;
-    [SerializeField] private float _cfgSpeed = 1.5f;
-    [SerializeField] private int _cfgValue = 20;
 
     protected override void Start()
     {
@@ -22,10 +18,10 @@ public class FastEnemyController : EnemyController
     protected override void SetStats()
     {
         Debug.Log("Set Fast Stats");
-        this._damage = _cfgDamage;
-        this._health = _cfgHealth;
-        this._speed = _cfgSpeed;
-        this._value = _cfgValue;
+        this._damage = 1;
+        this._health = 5;
+        this._speed = 1.5f;
+        this._value = 20;
     }
 
     public override void SpawnEnemy()

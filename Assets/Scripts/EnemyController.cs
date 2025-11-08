@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
     protected int _damage;
     protected float _health=1;//Default so if a glitch happens the gameobject doesnt die immediately
     protected int _value;
+    public bool isSpawned = false; // true for runtime spawned enemies; template objects remain false
     static int EnemyCount; //Will use to keep track of enemy #
 
     protected virtual void Start()
@@ -123,7 +124,6 @@ public class EnemyController : MonoBehaviour
 
     public virtual void SpawnEnemy()
     {
-
         EnemyCount += 1;
         this._x = 0;
         this._y = 540;
@@ -163,7 +163,7 @@ public class EnemyController : MonoBehaviour
         this._health -= damage;
     }
 
-    // publicly available attack interface
+    //Method that can be used from other scripts
     public void ApplyDamage(float damage)
     {
         TakeDamage(damage);

@@ -1,6 +1,5 @@
 using UnityEngine;
 
-// Universal Bullet (Straight Line): Locates a target at spawn and flies towards it; upon reaching a threshold, it hits and is destroyed.
 public class BulletController : MonoBehaviour
 {
     private Vector3 _lockPos;

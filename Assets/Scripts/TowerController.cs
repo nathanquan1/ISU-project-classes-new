@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+//using System.Numerics;
 using UnityEngine;
 
 public class TowerController : MonoBehaviour
@@ -7,24 +8,21 @@ public class TowerController : MonoBehaviour
     public GameObject tower;
     protected float timer;
     protected float damage;
-    protected float cooldown;
     public static int TowersPlaced;
+    protected float _x;
+    protected float _y;
 
  
-    [SerializeField] protected float range = 3.5f;//tower range
-    [SerializeField] protected float fireRate = 1.0f;//Number of launches per second
-    [SerializeField] protected GameObject bulletPrefab;
-    [SerializeField] protected float bulletSpeed = 6f;//Bullet speed
+    protected float range = 3.5f;//tower range
+    protected float fireRate = 1.0f;//Number of launches per second
+    public GameObject bulletPrefab;
+    protected float bulletSpeed = 6f;//Bullet speed
 
-    private float _cooldownTimer = 0f;
+    protected float _cooldownTimer = 0f;
 
     void Start()
     {
-        // Automatic configuration based on tower instance name
-        AutoSetup();
-
-        if (fireRate > 0f) cooldown = 1f / fireRate;
-        else cooldown = 0.5f;
+        SetStats();
     }
 
     // Update is called once per frame
@@ -37,7 +35,7 @@ public class TowerController : MonoBehaviour
         //attack + timer=0
 
         // Automatic enemy detection + cooldown assessment + firing
-        if (_cooldownTimer >= cooldown && bulletPrefab != null)
+        if (_cooldownTimer >= fireRate && bulletPrefab != null)
         {
             EnemyController target = SelectFrontMostTargetInRange();
             if (target != null)
@@ -53,51 +51,48 @@ public class TowerController : MonoBehaviour
         Debug.Log($"{x},{y}");
         TowersPlaced += 1;
         GameObject newTower = Instantiate(tower, new Vector2(x, y), Quaternion.identity);
-        // Execute SetStats on the "new instance"
-        var ctrl = newTower.GetComponent<TowerController>();
-        if (ctrl != null)
-        {
-            // Call its own SetStats
-            ctrl.SendMessage("SetStats", SendMessageOptions.DontRequireReceiver);
-
-            // Perform automatic configuration on new instances as well, ensuring they have the correct bullets and parameters.
-            ctrl.SendMessage("AutoSetup", SendMessageOptions.DontRequireReceiver);
-            // Cooldown refreshed based on fireRate
-            if (ctrl.fireRate > 0f) ctrl.cooldown = 1f / ctrl.fireRate;
-        }
+        this._x = x;
+        this._y = y;
+        SetStats();
+        
     }
 
     protected virtual void SetStats()
     {
-        damage = 0;
+        damage = 1; //defaults to cannon in case of glitch
+        fireRate = 0.75f;
+        range = 3.5f;
+        bulletSpeed = 6f;
     }
 
-    // Select the target based on its "first" priority.
+    //Selects target closest to the end
     protected EnemyController SelectFrontMostTargetInRange()
     {
-        EnemyController[] all = FindObjectsOfType<EnemyController>();
+        EnemyController[] all = FindObjectsOfType<EnemyController>(); //list of all enemies
         if (all == null || all.Length == 0) return null;
 
-        float goalX = 9.2f;
+        float goalX = 9.2f;//End of the path 
         Vector3 myPos = transform.position;
 
         EnemyController best = null;
-        float bestScore = float.MaxValue; // The closer to the finish line, the better (lower score).
+        float bestScore = float.MaxValue;
 
-        foreach (var e in all)
+        foreach (var e in all) //checks every currently spawned enemy
         {
             if (e == null) continue;
-            Vector3 ep = e.transform.position;
+            Vector3 ep = e.transform.position; //ep= enemyposition
             // Range judgment
-            if (Vector3.Distance(myPos, ep) > range) continue;
+            if (Vector3.Distance(myPos, ep) < range) continue;
 
-            float score = Mathf.Abs(goalX - ep.x); // Simplified metric: the difference from the endpoint x
+            float score = Mathf.Abs(goalX - ep.x); //end point x value - enemyposition x value
             if (score < bestScore)
             {
                 bestScore = score;
-                best = e;
+                best = e; //best enemy to attack
             }
         }
+        Debug.Log(myPos);
+        Debug.Log($"shooting at {best} from pos:{myPos.x},{myPos.y}");
         return best;
     }
 
@@ -107,9 +102,9 @@ public class TowerController : MonoBehaviour
         if (target == null) return;
         if (bulletPrefab == null) return;
 
-        // Bullet spawn point: Tower center
-        Vector3 spawnPos = transform.position;
-        GameObject go = Instantiate(bulletPrefab, spawnPos, Quaternion.identity);
+        //Bullet spawn point
+        Vector3 towerPos = transform.position;//created from placed tower
+        GameObject go = Instantiate(bulletPrefab, towerPos, Quaternion.identity);
 
         // Straight-line bullets: Lock onto the target's position at the moment of firing.
         Vector3 lockPos = target.transform.position;
@@ -117,39 +112,7 @@ public class TowerController : MonoBehaviour
         BulletController bc = go.GetComponent<BulletController>();
         if (bc == null) bc = go.AddComponent<BulletController>(); // To prevent scripts from being installed
         bc.Init(lockPos, damage, bulletSpeed, target);
-    }
 
-
-    void AutoSetup()
-    {
-        string n = gameObject.name.ToLower();
-
-        // Automatic bullet matching Prefab
-        if (bulletPrefab == null)
-        {
-            if (n.Contains("cannon")) bulletPrefab = Resources.Load<GameObject>("Bullet_Cannon");
-            else if (n.Contains("mg")) bulletPrefab = Resources.Load<GameObject>("Bullet_MG");
-            else if (n.Contains("missile")) bulletPrefab = Resources.Load<GameObject>("Missile");
-        }
-
-        // Automatically set rate of fire/range/bullet velocity
-        if (n.Contains("cannon"))
-        {
-            if (fireRate   <= 0f) fireRate = 0.75f;
-            if (range      <= 0f) range = 3.5f;
-            if (bulletSpeed<= 0f) bulletSpeed = 6f;
-        }
-        else if (n.Contains("mg"))
-        {
-            if (fireRate   <= 0f) fireRate = 4.0f;
-            if (range      <= 0f) range = 3.0f;
-            if (bulletSpeed<= 0f) bulletSpeed = 8f;
-        }
-        else if (n.Contains("missile"))
-        {
-            if (fireRate   <= 0f) fireRate = 1.0f;
-            if (range      <= 0f) range = 4.0f;
-            if (bulletSpeed<= 0f) bulletSpeed = 7f;
-        }
+        //target.ApplyDamage(damage);
     }
 }
