@@ -48,6 +48,10 @@ public class TowerPlacement : MonoBehaviour
                 }
                 _selected = false;
             }
+            else if (Input.GetKey(KeyCode.X))//x to cancel
+            {
+                _selected = false;
+            }
         }
         else
         {
