@@ -8,9 +8,9 @@ public class MissileTowerController : TowerController
     protected override void SetStats()
     {
         Debug.Log("Set Missile Stats");
-        damage = 7;
-        fireRate = 2f;//3.5dps
-        range = 4.0f;
+        damage = 8;
+        fireRate = 2;//4dps
+        range = 5;
         bulletSpeed = 5f;
     }
 }
