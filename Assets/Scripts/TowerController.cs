@@ -20,6 +20,8 @@ public class TowerController : MonoBehaviour
 
     void Start()
     {
+        // Automatic configuration based on tower instance name
+        AutoSetup();
 
         if (fireRate > 0f) cooldown = 1f / fireRate;
         else cooldown = 0.5f;
@@ -57,6 +59,11 @@ public class TowerController : MonoBehaviour
         {
             // Call its own SetStats
             ctrl.SendMessage("SetStats", SendMessageOptions.DontRequireReceiver);
+
+            // Perform automatic configuration on new instances as well, ensuring they have the correct bullets and parameters.
+            ctrl.SendMessage("AutoSetup", SendMessageOptions.DontRequireReceiver);
+            // Cooldown refreshed based on fireRate
+            if (ctrl.fireRate > 0f) ctrl.cooldown = 1f / ctrl.fireRate;
         }
     }
 
@@ -110,5 +117,39 @@ public class TowerController : MonoBehaviour
         BulletController bc = go.GetComponent<BulletController>();
         if (bc == null) bc = go.AddComponent<BulletController>(); // To prevent scripts from being installed
         bc.Init(lockPos, damage, bulletSpeed, target);
+    }
+
+
+    void AutoSetup()
+    {
+        string n = gameObject.name.ToLower();
+
+        // Automatic bullet matching Prefab
+        if (bulletPrefab == null)
+        {
+            if (n.Contains("cannon")) bulletPrefab = Resources.Load<GameObject>("Bullet_Cannon");
+            else if (n.Contains("mg")) bulletPrefab = Resources.Load<GameObject>("Bullet_MG");
+            else if (n.Contains("missile")) bulletPrefab = Resources.Load<GameObject>("Missile");
+        }
+
+        // Automatically set rate of fire/range/bullet velocity
+        if (n.Contains("cannon"))
+        {
+            if (fireRate   <= 0f) fireRate = 0.75f;
+            if (range      <= 0f) range = 3.5f;
+            if (bulletSpeed<= 0f) bulletSpeed = 6f;
+        }
+        else if (n.Contains("mg"))
+        {
+            if (fireRate   <= 0f) fireRate = 4.0f;
+            if (range      <= 0f) range = 3.0f;
+            if (bulletSpeed<= 0f) bulletSpeed = 8f;
+        }
+        else if (n.Contains("missile"))
+        {
+            if (fireRate   <= 0f) fireRate = 1.0f;
+            if (range      <= 0f) range = 4.0f;
+            if (bulletSpeed<= 0f) bulletSpeed = 7f;
+        }
     }
 }
