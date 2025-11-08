@@ -63,9 +63,13 @@ public class Gameplay : MonoBehaviour
         {
             Level2();
         }
-        else if (Level ==3)
+        else if (Level == 3)
         {
             Level3();
+        }
+        else if (Level ==4)
+        {
+            Level4();
         }
     }
 
@@ -116,7 +120,7 @@ public class Gameplay : MonoBehaviour
                 enemiesSpawned += 1;
             }
         }
-        else if (timer >= 35)//Level 1 takes a total of 35 seconds
+        else if (timer >= 35)//wait 35 seconds after all enemies spawned
         {
             //wave 1 finished
             Debug.Log("wave 1 finished");
@@ -137,7 +141,7 @@ public class Gameplay : MonoBehaviour
                 enemiesSpawned += 1;
             }
         }
-        else if (timer >= 10)
+        else if (timer >= 10)//wait 10 seconds AFTER all enemies spawn
         {
             Level = 3;
             enemiesSpawned = 0;
@@ -163,6 +167,25 @@ public class Gameplay : MonoBehaviour
                 }
             }
         }
+        else if (timer>=20)
+        {
+            Level = 4;
+            enemiesSpawned = 0;
+            timer = 0;
+        }
+    }
+    public void Level4()
+    {
+        if (enemiesSpawned < 3)
+        {
+            if (timer >= 2)
+            {
+                timer = 0;
+                enemiesSpawned += 1;
+                redEnemyController.SpawnEnemy();
+            }
+        }
+        else
     }
 
 }
