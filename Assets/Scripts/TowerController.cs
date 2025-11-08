@@ -82,7 +82,7 @@ public class TowerController : MonoBehaviour
             if (e == null) continue;
             Vector3 ep = e.transform.position; //ep= enemyposition
             // Range judgment
-            if (Vector3.Distance(myPos, ep) < range) continue;
+            if (Vector3.Distance(myPos, ep) > range) continue;
 
             float score = Mathf.Abs(goalX - ep.x); //end point x value - enemyposition x value
             if (score < bestScore)
