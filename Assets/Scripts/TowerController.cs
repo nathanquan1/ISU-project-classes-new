@@ -51,9 +51,15 @@ public class TowerController : MonoBehaviour
         Debug.Log($"{x},{y}");
         TowersPlaced += 1;
         GameObject newTower = Instantiate(tower, new Vector2(x, y), Quaternion.identity);
-        SetStats();
-
+        // Execute SetStats on the "new instance"
+        var ctrl = newTower.GetComponent<TowerController>();
+        if (ctrl != null)
+        {
+            // Call its own SetStats
+            ctrl.SendMessage("SetStats", SendMessageOptions.DontRequireReceiver);
+        }
     }
+
     protected virtual void SetStats()
     {
         damage = 0;
