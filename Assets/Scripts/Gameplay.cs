@@ -63,8 +63,47 @@ public class Gameplay : MonoBehaviour
         {
             Level2();
         }
+        else if (Level ==3)
+        {
+            Level3();
+        }
     }
 
+    
+
+    public void TakeDamage(int damage)
+    {
+        if (Health - damage <= 0)
+        {
+            Health = 0;
+            EndGame();
+        }
+        else
+        {
+            Health -= damage;
+        }
+    }
+    public void EndGame()
+    {
+        GameRunning = false;
+        sceneSwitcher.Homescreen();
+
+    }
+    public int GetHealth()
+    {
+        return Health;
+    }
+    public int GetMoney()
+    {
+        return Money;
+    }
+    public void SpendMoney(int amt)
+    {
+        if (Money >= amt) //checked in the other script anyways
+        {
+            Money -= amt;
+        }
+    }
     public void Level1()
     {
         if (enemiesSpawned < 10) //1 enemy every 2 seconds (10 enemies max)
@@ -98,45 +137,32 @@ public class Gameplay : MonoBehaviour
                 enemiesSpawned += 1;
             }
         }
-        else if (timer>=10)
+        else if (timer >= 10)
         {
-            //wave 2 finished
+            Level = 3;
+            enemiesSpawned = 0;
+            timer = 0;
         }
     }
-    
+    public void Level3()
+    {
+        if (enemiesSpawned < 6)//3 basics every second
+        {
+            timer += Time.deltaTime;
+            if (timer >= 1)//every second
+            {
+                timer = 0;
+                enemiesSpawned += 1;
+                if (enemiesSpawned < 3)//first 3 will be basic
+                {
+                    basicEnemyController.SpawnEnemy();
+                }
+                else //last 3 will be fast
+                {
+                    fastEnemyController.SpawnEnemy();
+                }
+            }
+        }
+    }
 
-    public void TakeDamage(int damage)
-    {
-        if (Health - damage <= 0)
-        {
-            Health = 0;
-            EndGame();
-        }
-        else
-        {
-            Health -= damage;
-        }
-    }
-    public void EndGame()
-    {
-        GameRunning = false;
-        sceneSwitcher.Homescreen();
-
-    }
-    public int GetHealth()
-    {
-        return Health;
-    }
-    public int GetMoney()
-    {
-        return Money;
-    }
-    public void SpendMoney(int amt)
-    {
-        if (Money>=amt) //checked in the other script anyways
-        {
-            Money -= amt;
-        }
-    }
-    
 }
