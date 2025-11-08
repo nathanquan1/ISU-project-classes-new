@@ -18,7 +18,7 @@ public class BasicEnemyController : EnemyController
     {
         Debug.Log("Set Basic Stats");
         this._damage = 2;
-        this._health = 10;
+        this._health = 7;
         this._speed = 1;
         this._value = 10;
     }

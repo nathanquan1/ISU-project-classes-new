@@ -8,8 +8,9 @@ public class MinigunTowerController : TowerController
 
     protected override void SetStats()
     {
-        damage = 1;
-        fireRate = 4.0f;
+        Debug.Log("Set MG Stats");
+        damage = 0.5f;
+        fireRate = 0.1f;//5dps
         range = 3.0f;
         bulletSpeed = 8f;
     }

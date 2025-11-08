@@ -8,8 +8,9 @@ public class CannonTowerController : TowerController
     //public GameObject tower;
     protected override void SetStats()
     {
-        damage = 1;
-        fireRate = 0.75f;
+        Debug.Log("Set Cannon Stats");
+        damage = 2;//1dps
+        fireRate = 4f;
         range = 3.5f;
         bulletSpeed = 6f;
     }
