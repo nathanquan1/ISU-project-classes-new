@@ -27,6 +27,15 @@ public class Gameplay : MonoBehaviour
     public float timer;
 
     private int enemiesSpawned;
+
+    // Separate monster spawn timer and wave interval timer to avoid confusion caused by using the "timer" function for multiple purposes.
+    private float spawnTimer;
+    private float waveGapTimer;
+
+    // Simple wave status marking to avoid repeated entry
+    private bool wave1Started;
+    private bool wave2Started;
+
     void Start()
     {
         if (SceneManager.GetActiveScene().name == "GameScene") //In case of a glitch
@@ -38,6 +47,12 @@ public class Gameplay : MonoBehaviour
             enemiesSpawned = 0;
         }
         timer = 0;
+
+        // Initialize new timers and flags
+        spawnTimer = 0f;
+        waveGapTimer = 0f;
+        wave1Started = false;
+        wave2Started = false;
     }
 
     // Update is called once per frame
@@ -48,18 +63,18 @@ public class Gameplay : MonoBehaviour
         //Debug.Log(GameRunning);
         if (GameRunning && SceneManager.GetActiveScene().name == "GameScene")
         {
-            //Debug.Log("Game Running.");
-            HealthDisplay.text = $"{Health}";
-            MoneyDisplay.text = $"Money: ${Money}";
-            LevelDisplay.text = $"Level: {Level}";
+            //Debug.log("Game Running.");
+            if (HealthDisplay != null) HealthDisplay.text = $"{Health}";
+            if (MoneyDisplay != null) MoneyDisplay.text = $"Money: ${Money}";
+            if (LevelDisplay != null) LevelDisplay.text = $"Level: {Level}";
         }
         //Debug.Log(Health);
 
-        if (Level == 1 &&timer>5) //timer>5 so it doesnt start the game right after you press play
+        if (Level == 1 && timer > 5) //timer>5 so it doesnt start the game right after you press play
         {
             Level1();
         }
-        else if (Level ==2)
+        else if (Level == 2)
         {
             Level2();
         }
@@ -67,28 +82,54 @@ public class Gameplay : MonoBehaviour
 
     public void Level1()
     {
-        
-        if (enemiesSpawned < 10 && timer > 2) //1 enemy every 2 seconds (10 enemies max)
+        // The system has been marked as having entered the first phase to prevent accidental triggering of other start logic from external sources.
+        if (!wave1Started) wave1Started = true;
+
+        if (enemiesSpawned < 10) //1 enemy every 2 seconds (10 enemies max)
         {
-            basicEnemyController.SpawnEnemy();
-            timer = 0;
-            enemiesSpawned += 1;
+            spawnTimer += Time.deltaTime;
+            if (spawnTimer >= 2f)
+            {
+                if (basicEnemyController != null)
+                {
+                    basicEnemyController.SpawnEnemy();
+                }
+                //timer = 0;  // No longer reuse timers as monster spawn timers
+                spawnTimer = 0f;
+                enemiesSpawned += 1;
+            }
         }
-        else if (enemiesSpawned >= 10 && timer>35)//35 seconds until next wave
+        else if (enemiesSpawned >= 10) //35 seconds until next wave
         {
-            //wave 1 finished
-            Debug.Log("wave 1 finished");
-            Level = 2;
-            enemiesSpawned = 0;
+            waveGapTimer += Time.deltaTime;
+            if (waveGapTimer >= 35f)
+            {
+                //wave 1 finished
+                Debug.Log("wave 1 finished");
+                Level = 2;
+                enemiesSpawned = 0;
+                // Reset the local timer before entering the next wave
+                spawnTimer = 0f;
+                waveGapTimer = 0f;
+            }
         }
     }
     public void Level2()
     {
-        if (enemiesSpawned < 3 && timer > 2) //1 enemy every 2 seconds (3 fast enemies max)
+        if (!wave2Started) wave2Started = true;
+
+        if (enemiesSpawned < 3) //1 enemy every 2 seconds (3 fast enemies max)
         {
-            fastEnemyController.SpawnEnemy();
-            timer = 0;
-            enemiesSpawned += 1;
+            spawnTimer += Time.deltaTime;
+            if (spawnTimer >= 2f)
+            {
+                if (fastEnemyController != null)
+                {
+                    fastEnemyController.SpawnEnemy();
+                }
+                spawnTimer = 0f;
+                enemiesSpawned += 1;
+            }
         }
         else if (enemiesSpawned >= 3)
         {
@@ -111,8 +152,12 @@ public class Gameplay : MonoBehaviour
     }
     public void EndGame()
     {
+        if (!GameRunning) return;
         GameRunning = false;
-        sceneSwitcher.Homescreen();
+        if (sceneSwitcher != null)
+        {
+            sceneSwitcher.Homescreen();
+        }
     }
     public int GetHealth()
     {
