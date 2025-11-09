@@ -13,11 +13,11 @@ public class SettingsMenu : MonoBehaviour
     {
         //Sets volume to the slider volume level by calling the setVolume function
         Volume.onValueChanged.AddListener(MenuController.SetVolume);
-        VolumeText.text = "Music: " + Mathf.RoundToInt(MenuController.music.volume*100).ToString()+"%";
+        VolumeText.text = "Music: " + Mathf.RoundToInt(MenuController.music.volume*1000).ToString()+"%";
     }
     void Update()
     {
-        VolumeText.text = "Music: " + Mathf.RoundToInt(MenuController.music.volume*100).ToString()+"%";
+        VolumeText.text = "Music: " + Mathf.RoundToInt(MenuController.music.volume*1000).ToString()+"%";
     }
 
     public void ToggleSettings()

@@ -61,7 +61,7 @@ public class Gameplay : MonoBehaviour
             LevelDisplay.text = $"Level: {Level}";
         }
 
-        Debug.Log(enemyController.getEnemies());
+        
         if (Level == 1 && timer > 4) //Starts after 4 seonds so its not instant
         {
             Level1();
