@@ -24,7 +24,7 @@ public class MenuController : MonoBehaviour
         sound.volume = PlayerPrefs.GetFloat("SFX"); //Sound effects slider not added yet
 
         music.PlayOneShot(MainMenuTheme); // Music looped
-        volumeSlider.value = music.volume; // Set the slider to match the saved volume
+        volumeSlider.value = music.volume*10; // Set the slider to match the saved volume
     }
 
     // Update is called once per frame

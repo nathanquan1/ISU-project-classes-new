@@ -14,7 +14,7 @@ public class Gameplay : MonoBehaviour
     public AlienEnemyController alienEnemyController;
     public RedEnemyController redEnemyController;
     private int enemiesSpawned;
-    
+
     public SceneSwitcher sceneSwitcher;//script
     public bool GameRunning;
     public TextMeshProUGUI HealthDisplay;
@@ -24,7 +24,7 @@ public class Gameplay : MonoBehaviour
     private int Health;
     private int Level;
     public float timer;
-    
+
     public AudioClip GameSceneTheme;
     public AudioSource sound;
     public AudioSource music;
@@ -61,7 +61,7 @@ public class Gameplay : MonoBehaviour
             LevelDisplay.text = $"Level: {Level}";
         }
 
-        
+
         if (Level == 1 && timer > 4) //Starts after 4 seonds so its not instant
         {
             Level1();
@@ -84,7 +84,7 @@ public class Gameplay : MonoBehaviour
         }
         else
         {
-            //win
+            Win();
         }
     }
 
@@ -124,7 +124,7 @@ public class Gameplay : MonoBehaviour
     }
     public void Level1()
     {
-        
+
         if (enemiesSpawned < 10) //1 enemy every 2 seconds (10 enemies max)
         {
             timer += Time.deltaTime;
@@ -218,7 +218,13 @@ public class Gameplay : MonoBehaviour
         else if (enemyController.getEnemies() == 0)
         {
             //win
+            Win();
         }
     }
 
+    public void Win()
+    {
+        Debug.Log("You Win!");
+        GameRunning = false;
+    }
 }
