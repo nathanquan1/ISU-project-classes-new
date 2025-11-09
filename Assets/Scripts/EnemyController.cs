@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
     protected int _damage;
     protected float _health=1;//Default so if a glitch happens the gameobject doesnt die immediately
     protected int _value;
+    protected float DistanceTraveled; //the further the enemy goes the higher the priority to attack
     public bool isSpawned = false; // true for runtime spawned enemies; template objects remain false
     public AudioSource sound;
     public AudioClip HitSound;
@@ -67,6 +68,7 @@ public class EnemyController : MonoBehaviour
             this._x -= this._speed * Time.deltaTime;
             this._z = 0;
         }
+        DistanceTraveled += this._speed * Time.deltaTime;
         transform.position = new Vector3(this._x, this._y,this._z);
         
         //PATH  
@@ -171,5 +173,9 @@ public class EnemyController : MonoBehaviour
     public int getEnemies()
     {
         return EnemiesAlive;
+    }
+    public float getDistance()
+    {
+        return DistanceTraveled;
     }
 }

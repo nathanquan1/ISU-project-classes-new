@@ -74,26 +74,27 @@ public class TowerController : MonoBehaviour
     protected EnemyController SelectFrontMostTargetInRange()
     {
         EnemyController[] all = FindObjectsOfType<EnemyController>(); //list of all enemies
-        if (all == null || all.Length == 0) return null;
-
-        float goalX = 9.2f;//End of the path 
+        if (all == null || all.Length == 0)
+        {
+            return null;
+        }
         Vector3 myPos = transform.position;
 
         EnemyController best = null;
-        float bestScore = float.MaxValue;
+        float furthestDistance = 0;
 
         foreach (var e in all) //checks every currently spawned enemy
         {
-            if (e == null) continue;
+            if (e == null) continue;//skip
             Vector3 ep = e.transform.position; //ep= enemyposition
             //Range judgment
-            if (Vector3.Distance(myPos, ep) > range) continue;
+            if (Vector3.Distance(myPos, ep) > range) continue; //if out of range skip to next
 
-            float score = Mathf.Abs(goalX - ep.x); //end point x value - enemyposition x value
-            if (score < bestScore)
+            float distance = e.getDistance(); //distance
+            if (distance > furthestDistance)
             {
-                bestScore = score;
-                best = e; //best enemy to attack
+                furthestDistance = distance;
+                best = e; //best enemy to attack (whoever has highest distance)
             }
         }
         Debug.Log(myPos);
