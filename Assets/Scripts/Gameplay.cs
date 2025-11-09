@@ -84,7 +84,7 @@ public class Gameplay : MonoBehaviour
         }
         else if (Level >5)
         {
-            Win();
+            //Win();
         }
     }
 
@@ -226,5 +226,6 @@ public class Gameplay : MonoBehaviour
     {
         //Debug.Log("You Win!");
         GameRunning = false;
+        sceneSwitcher.Homescreen();
     }
 }
