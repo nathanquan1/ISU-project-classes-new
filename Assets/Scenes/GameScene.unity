@@ -521,7 +521,6 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
-  EnemiesAlive: 0
 --- !u!1 &370708873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,7 +1461,6 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
-  EnemiesAlive: 0
 --- !u!95 &748925080
 Animator:
   serializedVersion: 5
@@ -1501,7 +1499,6 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
-  EnemiesAlive: 0
 --- !u!114 &748925083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1519,7 +1516,6 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
-  EnemiesAlive: 0
 --- !u!114 &748925084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1537,7 +1533,6 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
-  EnemiesAlive: 0
 --- !u!114 &748925085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1555,7 +1550,6 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
-  EnemiesAlive: 0
 --- !u!82 &748925086
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1839,7 +1833,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.2, z: 0}
-  m_LocalScale: {x: 13, y: 13, z: 1}
+  m_LocalScale: {x: 18, y: 18, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1969345725}
@@ -3589,7 +3583,6 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
-  EnemiesAlive: 0
 --- !u!114 &2083370032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3607,7 +3600,6 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
-  EnemiesAlive: 0
 --- !u!114 &2083370033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3625,7 +3617,6 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
-  EnemiesAlive: 0
 --- !u!114 &2083370034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3643,7 +3634,6 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
-  EnemiesAlive: 0
 --- !u!1 &2117602863
 GameObject:
   m_ObjectHideFlags: 0
