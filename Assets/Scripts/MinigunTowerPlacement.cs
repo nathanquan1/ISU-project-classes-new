@@ -9,6 +9,6 @@ public class MinigunTowerPlacement : TowerPlacement
     protected override void Start()
     {
         base.Start();
-        this.Price = 70;
+        this.Price = 120;
     }
 }

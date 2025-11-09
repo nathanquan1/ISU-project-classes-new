@@ -34,7 +34,7 @@ public class Gameplay : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "GameScene") //So this doesn't run in the main menu
         {
             Money = 40;
-            Health = 25;
+            Health = 20;
             Level = 1;
             GameRunning = true;
             enemiesSpawned = 0;
