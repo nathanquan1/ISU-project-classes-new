@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 266222055}
   - component: {fileID: 266222054}
   - component: {fileID: 266222056}
+  - component: {fileID: 266222058}
   - component: {fileID: 266222057}
   m_Layer: 0
   m_Name: Scene Switcher
@@ -375,6 +376,7 @@ MonoBehaviour:
   playMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
   helpMenu: {fileID: 0}
+  volumeSlider: {fileID: 0}
   MainMenuTheme: {fileID: 8300000, guid: 0430383b36939d7478b2c4ff7b934c7e, type: 3}
   sound: {fileID: 266222057}
   music: {fileID: 266222057}
@@ -502,6 +504,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &266222058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266222053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d2f22f03e3c1d4e9776217d64f2e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 0}
+  gameplay: {fileID: 2083370029}
+  isSpawned: 0
+  sound: {fileID: 748925086}
+  HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
 --- !u!1 &370708873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,12 +1415,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 748925078}
-  - component: {fileID: 748925079}
   - component: {fileID: 748925080}
+  - component: {fileID: 748925079}
   - component: {fileID: 748925085}
   - component: {fileID: 748925082}
   - component: {fileID: 748925083}
   - component: {fileID: 748925084}
+  - component: {fileID: 748925086}
   m_Layer: 0
   m_Name: Enemy Scripts
   m_TagString: Untagged
@@ -1439,7 +1459,7 @@ MonoBehaviour:
   card: {fileID: 0}
   gameplay: {fileID: 2083370029}
   isSpawned: 0
-  sound: {fileID: 266222057}
+  sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
 --- !u!95 &748925080
 Animator:
@@ -1477,7 +1497,7 @@ MonoBehaviour:
   card: {fileID: 1630988089446881999, guid: d195a69d4959c4543a610988005d0aaf, type: 3}
   gameplay: {fileID: 2083370029}
   isSpawned: 0
-  sound: {fileID: 266222057}
+  sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
 --- !u!114 &748925083
 MonoBehaviour:
@@ -1494,7 +1514,7 @@ MonoBehaviour:
   card: {fileID: 2781552389603501716, guid: 62d52c8d4b9ca1742ad96860e6eae7ca, type: 3}
   gameplay: {fileID: 2083370029}
   isSpawned: 0
-  sound: {fileID: 266222057}
+  sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
 --- !u!114 &748925084
 MonoBehaviour:
@@ -1511,7 +1531,7 @@ MonoBehaviour:
   card: {fileID: 5360121015601790905, guid: 34a7a2f98851da4418ec1d33117de34c, type: 3}
   gameplay: {fileID: 2083370029}
   isSpawned: 0
-  sound: {fileID: 266222057}
+  sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
 --- !u!114 &748925085
 MonoBehaviour:
@@ -1528,8 +1548,104 @@ MonoBehaviour:
   card: {fileID: 753454625695032848, guid: 3b4d39c90f43fa941a1b8242a9b2e130, type: 3}
   gameplay: {fileID: 2083370029}
   isSpawned: 0
-  sound: {fileID: 266222057}
+  sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
+--- !u!82 &748925086
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748925077}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &918542459
 GameObject:
   m_ObjectHideFlags: 0
@@ -3465,7 +3581,7 @@ MonoBehaviour:
   card: {fileID: 1630988089446881999, guid: d195a69d4959c4543a610988005d0aaf, type: 3}
   gameplay: {fileID: 2083370029}
   isSpawned: 0
-  sound: {fileID: 266222057}
+  sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
 --- !u!114 &2083370032
 MonoBehaviour:
@@ -3482,7 +3598,7 @@ MonoBehaviour:
   card: {fileID: 5360121015601790905, guid: 34a7a2f98851da4418ec1d33117de34c, type: 3}
   gameplay: {fileID: 2083370029}
   isSpawned: 0
-  sound: {fileID: 266222057}
+  sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
 --- !u!114 &2083370033
 MonoBehaviour:
@@ -3499,7 +3615,7 @@ MonoBehaviour:
   card: {fileID: 2781552389603501716, guid: 62d52c8d4b9ca1742ad96860e6eae7ca, type: 3}
   gameplay: {fileID: 2083370029}
   isSpawned: 0
-  sound: {fileID: 266222057}
+  sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
 --- !u!114 &2083370034
 MonoBehaviour:
@@ -3516,7 +3632,7 @@ MonoBehaviour:
   card: {fileID: 753454625695032848, guid: 3b4d39c90f43fa941a1b8242a9b2e130, type: 3}
   gameplay: {fileID: 2083370029}
   isSpawned: 0
-  sound: {fileID: 266222057}
+  sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
 --- !u!1 &2117602863
 GameObject:

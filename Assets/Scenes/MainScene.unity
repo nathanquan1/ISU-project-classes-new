@@ -2427,6 +2427,7 @@ MonoBehaviour:
   playMenu: {fileID: 53882112}
   settingsMenu: {fileID: 1448770801}
   helpMenu: {fileID: 1715924716}
+  volumeSlider: {fileID: 980130937}
   MainMenuTheme: {fileID: 8300000, guid: 7c69a4b46cd6e1442b3c0957b51ea1a9, type: 3}
   sound: {fileID: 1658054803}
   music: {fileID: 1658054803}

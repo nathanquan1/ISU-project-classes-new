@@ -40,9 +40,11 @@ public class Gameplay : MonoBehaviour
         }
         timer = 0;
 
-        float volume = PlayerPrefs.GetFloat("Volume", 0.5f);
-        music.volume = volume;
-        sound.volume = volume;
+        float MusicVolume = PlayerPrefs.GetFloat("Music", 0.5f);
+        float SFXVolume = PlayerPrefs.GetFloat("SFX", 0.5f);
+        music.volume = MusicVolume;
+        sound.volume = SFXVolume;
+
         music.PlayOneShot(GameSceneTheme); // Music looped
     }
 

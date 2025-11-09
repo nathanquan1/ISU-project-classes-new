@@ -159,12 +159,12 @@ public class EnemyController : MonoBehaviour
     protected virtual void TakeDamage(float damage)
     {
         this._health -= damage;
-        sound.PlayOneShot(HitSound); //plays a sound when hit
     }
 
     //Method that can be used from other scripts
     public void ApplyDamage(float damage)
     {
         TakeDamage(damage);
+        sound.PlayOneShot(HitSound); //plays a sound when hit
     }
 }
