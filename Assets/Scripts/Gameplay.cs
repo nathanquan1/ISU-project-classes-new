@@ -44,8 +44,7 @@ public class Gameplay : MonoBehaviour
         float SFXVolume = PlayerPrefs.GetFloat("SFX", 0.5f);
         music.volume = MusicVolume;
         sound.volume = SFXVolume;
-
-        music.PlayOneShot(GameSceneTheme); // Music looped
+        music.PlayOneShot(GameSceneTheme);//loop
     }
 
     // Update is called once per frame
@@ -81,29 +80,11 @@ public class Gameplay : MonoBehaviour
         }
     }
 
-    
-
-    public void TakeDamage(int damage)
-    {
-        if (Health - damage <= 0)
-        {
-            Health = 0;
-            EndGame();
-        }
-        else
-        {
-            Health -= damage;
-        }
-    }
     public void EndGame()
     {
         GameRunning = false;
         sceneSwitcher.Homescreen();
 
-    }
-    public int GetHealth()
-    {
-        return Health;
     }
     public int GetMoney()
     {
@@ -114,6 +95,23 @@ public class Gameplay : MonoBehaviour
         if (Money >= amt) //checked in the other script anyways
         {
             Money -= amt;
+        }
+    }
+    
+    public int GetHealth()
+    {
+        return Health;
+    }
+    public void TakeDamage(int damage)
+    {
+        if (Health - damage <= 0)
+        {
+            Health = 0;
+            EndGame();
+        }
+        else
+        {
+            Health -= damage;
         }
     }
     public void Level1()

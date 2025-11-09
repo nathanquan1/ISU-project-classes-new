@@ -22,7 +22,6 @@ public class TowerPlacement : MonoBehaviour
     public void togglePlacing()
     {
         _selected = !_selected;
-        Debug.Log($"Tower button clicked. selected:{_selected}");
     }
     protected virtual void Start()
     {
