@@ -16,13 +16,13 @@ public class SettingsMenu : MonoBehaviour
         //Sets volume to the slider volume level by calling the setVolume function
         MusicVolume.onValueChanged.AddListener(MenuController.SetMusicVolume);
         SoundVolume.onValueChanged.AddListener(MenuController.SetSoundVolume);
-        MusicVolumeText.text = "Music: " + Mathf.RoundToInt(MenuController.music.volume*1000).ToString()+"%";
-        SoundVolumeText.text = "SFX: " + Mathf.RoundToInt(MenuController.sound.volume*1000).ToString() + "%";
+        MusicVolumeText.text = "Music: " + Mathf.RoundToInt(MenuController.music.volume*100).ToString()+"%";
+        SoundVolumeText.text = "SFX: " + Mathf.RoundToInt(MenuController.sound.volume*100).ToString() + "%";
     }
     void Update()
     {
-        MusicVolumeText.text = "Music: " + Mathf.RoundToInt(MenuController.music.volume*1000).ToString()+"%";
-        SoundVolumeText.text = "SFX: " + Mathf.RoundToInt(MenuController.sound.volume*1000).ToString()+"%";
+        MusicVolumeText.text = "Music: " + Mathf.RoundToInt(MenuController.music.volume*100).ToString()+"%";
+        SoundVolumeText.text = "SFX: " + Mathf.RoundToInt(MenuController.sound.volume*100).ToString()+"%";
     }
 
     public void ToggleSettings()

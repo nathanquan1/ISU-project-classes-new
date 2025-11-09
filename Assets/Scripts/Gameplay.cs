@@ -40,11 +40,14 @@ public class Gameplay : MonoBehaviour
             enemiesSpawned = 0;
         }
         timer = 0;
-        //float MusicVolume = PlayerPrefs.GetFloat("Music", 0.5f);
-        //float SFXVolume = PlayerPrefs.GetFloat("SFX", 0.5f);
-        music.volume = 0.05f;
-        sound.volume = 0.05f;
-        music.PlayOneShot(GameSceneTheme);//loop
+        float MusicVolume = PlayerPrefs.GetFloat("Music", 0.5f);
+        float SFXVolume = PlayerPrefs.GetFloat("SFX", 0.5f);
+        music.volume = MusicVolume;
+        sound.volume = SFXVolume;
+
+        music.loop = true; //loop
+        music.clip = GameSceneTheme;
+        music.Play();
     }
 
     // Update is called once per frame
