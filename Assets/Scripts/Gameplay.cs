@@ -24,7 +24,7 @@ public class Gameplay : MonoBehaviour
     private int Health;
     private int Level;
     public float timer;
-
+    public AudioClip HitSound;
     public AudioClip GameSceneTheme;
     public AudioSource sound;
     public AudioSource music;
@@ -219,5 +219,9 @@ public class Gameplay : MonoBehaviour
         //Debug.Log("You Win!");
         GameRunning = false;
         sceneSwitcher.Homescreen();
+    }
+    public void PlayHitSound()
+    {
+        sound.PlayOneShot(HitSound);
     }
 }

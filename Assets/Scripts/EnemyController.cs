@@ -26,8 +26,6 @@ public class EnemyController : MonoBehaviour
     protected int _value;
     protected float DistanceTraveled; //the further the enemy goes the higher the priority to attack
     public bool isSpawned = false; // true for runtime spawned enemies; template objects remain false
-    public AudioSource sound;
-    public AudioClip HitSound;
     public static int EnemiesAlive=0;
     protected virtual void Start()
     {
@@ -162,7 +160,7 @@ public class EnemyController : MonoBehaviour
     protected virtual void TakeDamage(float damage)
     {
         this._health -= damage;
-        sound.PlayOneShot(HitSound); //plays a sound when hit
+        gameplay.PlayHitSound(); //plays a sound when hit
     }
 
     //Method that can be used from other scripts
