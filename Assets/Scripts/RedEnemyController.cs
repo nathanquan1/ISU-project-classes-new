@@ -9,8 +9,6 @@ public class RedEnemyController : EnemyController
     protected override void Start()
     {
         base.Start();
-        this._x = transform.position.x;
-        this._y = transform.position.y;
         ChangeDirection("E");
         SetStats();
     }
@@ -18,7 +16,7 @@ public class RedEnemyController : EnemyController
     protected override void SetStats()
     {
         this._damage = 5;
-        this._health = 10;
+        this._health = 100;
         this._speed = 0.3f;
         this._value = 50;
     }

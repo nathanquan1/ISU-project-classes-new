@@ -376,7 +376,6 @@ MonoBehaviour:
   settingsMenu: {fileID: 0}
   helpMenu: {fileID: 0}
   MainMenuTheme: {fileID: 8300000, guid: 0430383b36939d7478b2c4ff7b934c7e, type: 3}
-  HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
   sound: {fileID: 266222057}
   music: {fileID: 266222057}
 --- !u!4 &266222055
@@ -3428,7 +3427,7 @@ MonoBehaviour:
   basicEnemyController: {fileID: 2083370033}
   fastEnemyController: {fileID: 2083370032}
   alienEnemyController: {fileID: 2083370031}
-  redEnemyController: {fileID: 7313350026638398118, guid: 3b4d39c90f43fa941a1b8242a9b2e130, type: 3}
+  redEnemyController: {fileID: 2083370034}
   HealthDisplay: {fileID: 635163883}
   MoneyDisplay: {fileID: 1325638204}
   LevelDisplay: {fileID: 1560180272}

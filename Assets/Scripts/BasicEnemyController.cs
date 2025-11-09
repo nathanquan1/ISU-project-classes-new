@@ -9,8 +9,6 @@ public class BasicEnemyController : EnemyController
     protected override void Start()
     {
         base.Start();
-        this._x = transform.position.x;
-        this._y = transform.position.y;
         ChangeDirection("E");
         SetStats();
     }
