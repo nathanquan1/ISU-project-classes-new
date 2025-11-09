@@ -47,11 +47,10 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        //if touching cannonbullet takedamage cannon.getdamage
-        //directions
+        //Movement based on directions:
         if (this._direction == "N")
         {
-            this._y += this._speed * Time.deltaTime; //Time.deltaTime means time since last frame which basically makes it the same for any fps 
+            this._y += this._speed * Time.deltaTime; //makes it move consistantly based on FPS
             this._z += this._speed * Time.deltaTime * 0.001f;
         }
         else if (this._direction == "E")
@@ -72,7 +71,7 @@ public class EnemyController : MonoBehaviour
         transform.position = new Vector3(this._x, this._y,this._z);
         
         //PATH  
-        if (this._x >= -4.1f && this._x <= -4f) //Checks if it is inbetween the right points to turn directions
+        if (this._x >= -4.1f && this._x <= -4f) //at about x=-4 changes direction down
         {
             ChangeDirection("S");
         }
@@ -96,8 +95,7 @@ public class EnemyController : MonoBehaviour
         {
             ChangeDirection("E");
         }
-        //end of path:
-        // NEED SOME WAY TO CHECK IF PREFAB OR NOT / OR I HAVE TO MAKE NEW CRIPT FOR ENEMY SPAWNING
+        //reach end of path:
         if (this._x >= 9.2f)
         {
             //Deal damage (damage)
@@ -109,8 +107,7 @@ public class EnemyController : MonoBehaviour
         if (this._health <= 0)
         {
             Debug.Log("Enemy Killed");
-            // Kill Rewards: Use SpendMoney to pass negative numbers to increase rewards, avoiding modifications to Gameplay.cs.
-            if (gameplay != null) { gameplay.SpendMoney(-_value); }
+            gameplay.SpendMoney(-_value); //Spend Money for negative value means gain money
             Destroy(this.gameObject);
         }//Make sure to not let this be targeted if !spawned
     }
@@ -124,7 +121,7 @@ public class EnemyController : MonoBehaviour
         _value = 0;
     }
 
-    public virtual void SpawnEnemy()
+    public void SpawnEnemy()
     {
         EnemyCount += 1;
         this._x = 0;
@@ -161,9 +158,8 @@ public class EnemyController : MonoBehaviour
 
     protected virtual void TakeDamage(float damage)
     {
-        //if touching bullet then run this for bullet's damage val
         this._health -= damage;
-        sound.PlayOneShot(HitSound); // Plays a sound when hit
+        sound.PlayOneShot(HitSound); //plays a sound when hit
     }
 
     //Method that can be used from other scripts

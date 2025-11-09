@@ -21,10 +21,4 @@ public class RedEnemyController : EnemyController
         this._value = 50;
     }
 
-    public override void SpawnEnemy()
-    {
-        //this.spawned = true;
-        base.SpawnEnemy();
-        
-    }
 }

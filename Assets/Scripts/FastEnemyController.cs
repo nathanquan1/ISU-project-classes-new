@@ -22,11 +22,4 @@ public class FastEnemyController : EnemyController
         this._speed = 1.5f;
         this._value = 15;
     }
-
-    public override void SpawnEnemy()
-    {
-        //this.spawned = true;
-        base.SpawnEnemy();
-        
-    }
 }
