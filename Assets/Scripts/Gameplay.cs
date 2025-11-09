@@ -131,7 +131,7 @@ public class Gameplay : MonoBehaviour
             timer = 0;
             enemiesSpawned += 1;
         }
-        else if (enemyController.getEnemies() == 0) //When they all die start next wave
+        else if (enemyController.getEnemies() == 0 &&enemiesSpawned==10) //When they all die start next wave
         {
             //reset
             Debug.Log("wave 1 finished");
@@ -148,7 +148,7 @@ public class Gameplay : MonoBehaviour
             timer = 0;
             enemiesSpawned += 1;
         }
-        else if (enemyController.getEnemies() == 0)//wait 10 seconds AFTER all enemies spawn
+        else if (enemyController.getEnemies() == 0&&enemiesSpawned==3)//wait 10 seconds AFTER all enemies spawn
         {
             Level = 3;
             enemiesSpawned = 0;
@@ -170,7 +170,7 @@ public class Gameplay : MonoBehaviour
                 fastEnemyController.SpawnEnemy();
             }
         }
-        else if (enemyController.getEnemies() == 0)
+        else if (enemyController.getEnemies() == 0&&enemiesSpawned==7)
         {
             Level = 4;
             enemiesSpawned = 0;
@@ -192,7 +192,7 @@ public class Gameplay : MonoBehaviour
                 fastEnemyController.SpawnEnemy();
             }
         }
-        else if (enemyController.getEnemies() == 0)
+        else if (enemyController.getEnemies() == 0&&enemiesSpawned==4)
         {
             Level = 5;
             enemiesSpawned = 0;
@@ -207,7 +207,7 @@ public class Gameplay : MonoBehaviour
             alienEnemyController.SpawnEnemy();
             enemiesSpawned += 1;
         }
-        else if (enemyController.getEnemies() == 0)
+        else if (enemyController.getEnemies() == 0&&enemiesSpawned==2)
         {
             //win
             Win();
