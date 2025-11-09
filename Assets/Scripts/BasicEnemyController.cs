@@ -18,6 +18,6 @@ public class BasicEnemyController : EnemyController
         this._damage = 2;
         this._health = 7;
         this._speed = 1;
-        this._value = 10;
+        this._value = 7;
     }
 }

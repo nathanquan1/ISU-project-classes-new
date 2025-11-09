@@ -8,6 +8,6 @@ public class MissileTowerPlacement : TowerPlacement
     protected override void Start()
     {
         base.Start();
-        this.Price = 100;
+        this.Price = 150;
     }
 }
