@@ -21,9 +21,9 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         OpenPlayMenu();
-        music.volume = PlayerPrefs.GetFloat("Music");//set volume to what it was set to last time you played
-        sound.volume = PlayerPrefs.GetFloat("SFX");
-
+        //music.volume = PlayerPrefs.GetFloat("Music");//set volume to what it was set to last time you played
+        //sound.volume = PlayerPrefs.GetFloat("SFX");
+        
         music.PlayOneShot(MainMenuTheme); // Music looped
         musicVolumeSlider.value = music.volume*10; // Set the slider to match the saved volume
         soundVolumeSlider.value = sound.volume*10; 

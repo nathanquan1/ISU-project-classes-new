@@ -19,11 +19,11 @@ public class SettingsMenu : MonoBehaviour
         MusicVolumeText.text = "Music: " + Mathf.RoundToInt(MenuController.music.volume*1000).ToString()+"%";
         SoundVolumeText.text = "SFX: " + Mathf.RoundToInt(MenuController.sound.volume*1000).ToString() + "%";
     }
-    // void Update()
-    // {
-    //     MusicVolumeText.text = "Music: " + Mathf.RoundToInt(MenuController.music.volume*1000).ToString()+"%";
-    //     SoundVolumeText.text = "SFX: " + Mathf.RoundToInt(MenuController.sound.volume*1000).ToString()+"%";
-    // }
+    void Update()
+    {
+        MusicVolumeText.text = "Music: " + Mathf.RoundToInt(MenuController.music.volume*1000).ToString()+"%";
+        SoundVolumeText.text = "SFX: " + Mathf.RoundToInt(MenuController.sound.volume*1000).ToString()+"%";
+    }
 
     public void ToggleSettings()
     {
