@@ -40,7 +40,7 @@ public class TowerPlacement : MonoBehaviour
         hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero); //is set to what mouse is touching, vector2.zero means no direction since 2d
         //bool touchingPathComponents = hit.collider.transform.IsChildOf(pathway.transform);
         touchingPath =  hit.collider != null && hit.collider.transform.IsChildOf(pathway.transform); //mouse touching path bool variable 
-        Debug.Log(touchingPath);//ischildof checks if it is touching the pathway components since it is broken up into multiple gameobjects
+        Debug.Log($"{touchingPath}");//ischildof checks if it is touching the pathway components since it is broken up into multiple gameobjects
 
         if (_selected)
         {

@@ -50,12 +50,12 @@ public class Gameplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Every time the frame runs timer adds the amount of seconds inbetween the frames
-        timer += Time.deltaTime;
+        timer += Time.deltaTime;//Every time the frame runs timer adds the amount of seconds inbetween the frames
+        Debug.Log($"{GameRunning}, {SceneManager.GetActiveScene().name}");
         //Debug.Log(GameRunning);
         if (GameRunning && SceneManager.GetActiveScene().name == "GameScene")
         {
-            //Debug.log("Game Running.");
+            
             HealthDisplay.text = $"{Health}";
             MoneyDisplay.text = $"Money: ${Money}";
             LevelDisplay.text = $"Level: {Level}";
@@ -82,7 +82,7 @@ public class Gameplay : MonoBehaviour
         {
             Level5();
         }
-        else
+        else if (Level >5)
         {
             Win();
         }
@@ -224,7 +224,7 @@ public class Gameplay : MonoBehaviour
 
     public void Win()
     {
-        Debug.Log("You Win!");
+        //Debug.Log("You Win!");
         GameRunning = false;
     }
 }

@@ -823,7 +823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameplay: {fileID: 2083370029}
   towerPreview: {fileID: 226472035}
-  pathway: {fileID: 2027605251}
+  pathway: {fileID: 0}
   towerController: {fileID: 439538251}
   cannonTowerController: {fileID: 439538252}
   minigunTowerController: {fileID: 439538253}
