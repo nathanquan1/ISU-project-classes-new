@@ -11,7 +11,8 @@ public class MenuController : MonoBehaviour
     public GameObject playMenu;
     public GameObject settingsMenu;
     public GameObject helpMenu;
-    public Slider volumeSlider;
+    public Slider musicVolumeSlider;
+    public Slider soundVolumeSlider; 
     public AudioClip MainMenuTheme;
     public AudioSource sound;
     public AudioSource music;
@@ -21,10 +22,11 @@ public class MenuController : MonoBehaviour
     {
         OpenPlayMenu();
         music.volume = PlayerPrefs.GetFloat("Music");//set volume to what it was set to last time you played
-        sound.volume = PlayerPrefs.GetFloat("SFX"); //Sound effects slider not added yet
+        sound.volume = PlayerPrefs.GetFloat("SFX");
 
         music.PlayOneShot(MainMenuTheme); // Music looped
-        volumeSlider.value = music.volume*10; // Set the slider to match the saved volume
+        musicVolumeSlider.value = music.volume*10; // Set the slider to match the saved volume
+        soundVolumeSlider.value = sound.volume*10; 
     }
 
     // Update is called once per frame
@@ -52,12 +54,16 @@ public class MenuController : MonoBehaviour
         helpMenu.SetActive(true);
     }
 
-    public void SetVolume(float value)
+    public void SetMusicVolume(float value)
     {
-        music.volume = value*0.1f;
-        sound.volume = value*0.1f;
-
+        music.volume = value * 0.1f;
         PlayerPrefs.SetFloat("Music", music.volume);//stores 
+        PlayerPrefs.Save();
+    }
+    
+    public void SetSoundVolume(float value)
+    {
+        sound.volume = value * 0.1f;
         PlayerPrefs.SetFloat("SFX", sound.volume);
         PlayerPrefs.Save();
     }
