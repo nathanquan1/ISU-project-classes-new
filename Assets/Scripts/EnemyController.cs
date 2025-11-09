@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     
     protected float _x; //Use protected so the other class can use it properly
     protected float _y;
-    protected float _z; //layers of enemies
+    protected float _z; //control layers of enemies
     protected string _direction = "E";// use north, south, North east, etc so we can abreviate it
     private Animator animator;
     public GameObject card;
@@ -25,10 +25,9 @@ public class EnemyController : MonoBehaviour
     protected float _health=1;//Default so if a glitch happens the gameobject doesnt die immediately
     protected int _value;
     public bool isSpawned = false; // true for runtime spawned enemies; template objects remain false
-    static int EnemyCount; //Will use to keep track of enemy #
     public AudioSource sound;
     public AudioClip HitSound;
-
+    public static int EnemiesAlive=0;
     protected virtual void Start()
     {
         Debug.Log($"Base Start, DMG:{this._damage}");
@@ -102,12 +101,14 @@ public class EnemyController : MonoBehaviour
             
             Debug.Log($"Speed:{this._speed},X:{this._x},AN ENEMY HAS DEALT {this._damage} DMG");
             gameplay.TakeDamage(this._damage);
+            EnemiesAlive -= 1;
             Destroy(this.gameObject);
         }
         if (this._health <= 0)
         {
             Debug.Log("Enemy Killed");
-            gameplay.SpendMoney(-_value); //Spend Money for negative value means gain money
+            gameplay.SpendMoney(-_value); //SpendMoney(-x) -> gain $x
+            EnemiesAlive -= 1;
             Destroy(this.gameObject);
         }//Make sure to not let this be targeted if !spawned
     }
@@ -123,7 +124,7 @@ public class EnemyController : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        EnemyCount += 1;
+        EnemiesAlive += 1;
         this._x = 0;
         this._y = 540;
         Vector2 spawnPoint = Camera.main.ScreenToWorldPoint(new Vector2(this._x, this._y));
@@ -166,5 +167,9 @@ public class EnemyController : MonoBehaviour
     {
         TakeDamage(damage);
         sound.PlayOneShot(HitSound); //plays a sound when hit
+    }
+    public int getEnemies()
+    {
+        return EnemiesAlive;
     }
 }

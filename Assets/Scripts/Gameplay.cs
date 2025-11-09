@@ -8,14 +8,15 @@ using UnityEngine.SceneManagement;
 using System.Runtime.InteropServices;
 public class Gameplay : MonoBehaviour
 {
-    public SceneSwitcher sceneSwitcher;
-    public bool GameRunning;
     public EnemyController enemyController;
     public BasicEnemyController basicEnemyController;
     public FastEnemyController fastEnemyController;
     public AlienEnemyController alienEnemyController;
     public RedEnemyController redEnemyController;
-
+    private int enemiesSpawned;
+    
+    public SceneSwitcher sceneSwitcher;//script
+    public bool GameRunning;
     public TextMeshProUGUI HealthDisplay;
     public TextMeshProUGUI MoneyDisplay;
     public TextMeshProUGUI LevelDisplay;
@@ -23,14 +24,14 @@ public class Gameplay : MonoBehaviour
     private int Health;
     private int Level;
     public float timer;
-    private int enemiesSpawned;
+    
     public AudioClip GameSceneTheme;
     public AudioSource sound;
     public AudioSource music;
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "GameScene") //In case of a glitch check if it's the right scene
+        if (SceneManager.GetActiveScene().name == "GameScene") //So this doesn't run in the main menu
         {
             Money = 40;
             Health = 25;
@@ -39,7 +40,6 @@ public class Gameplay : MonoBehaviour
             enemiesSpawned = 0;
         }
         timer = 0;
-
         float MusicVolume = PlayerPrefs.GetFloat("Music", 0.5f);
         float SFXVolume = PlayerPrefs.GetFloat("SFX", 0.5f);
         music.volume = MusicVolume;
@@ -60,8 +60,8 @@ public class Gameplay : MonoBehaviour
             MoneyDisplay.text = $"Money: ${Money}";
             LevelDisplay.text = $"Level: {Level}";
         }
-        //Debug.Log(Health);
 
+        Debug.Log(enemyController.getEnemies());
         if (Level == 1 && timer > 4) //Starts after 4 seonds so its not instant
         {
             Level1();
@@ -74,9 +74,17 @@ public class Gameplay : MonoBehaviour
         {
             Level3();
         }
-        else if (Level ==4)
+        else if (Level == 4)
         {
             Level4();
+        }
+        else if (Level == 5)
+        {
+            Level5();
+        }
+        else
+        {
+            //win
         }
     }
 
@@ -97,7 +105,7 @@ public class Gameplay : MonoBehaviour
             Money -= amt;
         }
     }
-    
+
     public int GetHealth()
     {
         return Health;
@@ -116,6 +124,7 @@ public class Gameplay : MonoBehaviour
     }
     public void Level1()
     {
+        
         if (enemiesSpawned < 10) //1 enemy every 2 seconds (10 enemies max)
         {
             timer += Time.deltaTime;
@@ -126,9 +135,9 @@ public class Gameplay : MonoBehaviour
                 enemiesSpawned += 1;
             }
         }
-        else if (timer >= 10) //wait 10 seconds after all enemies spawned
+        else if (enemyController.getEnemies() == 0) //When they all die start next wave
         {
-            //wave 1 finished
+            //reset
             Debug.Log("wave 1 finished");
             Level = 2;
             enemiesSpawned = 0;
@@ -147,7 +156,7 @@ public class Gameplay : MonoBehaviour
                 enemiesSpawned += 1;
             }
         }
-        else if (timer >= 10)//wait 10 seconds AFTER all enemies spawn
+        else if (enemyController.getEnemies() == 0)//wait 10 seconds AFTER all enemies spawn
         {
             Level = 3;
             enemiesSpawned = 0;
@@ -173,7 +182,7 @@ public class Gameplay : MonoBehaviour
                 }
             }
         }
-        else if (timer>=10)
+        else if (enemyController.getEnemies() == 0)
         {
             Level = 4;
             enemiesSpawned = 0;
@@ -191,9 +200,24 @@ public class Gameplay : MonoBehaviour
                 redEnemyController.SpawnEnemy();
             }
         }
-        else if (timer >=20)
+        else if (enemyController.getEnemies() == 0)
         {
-            //done
+            Level = 5;
+            enemiesSpawned = 0;
+            timer = 0;
+        }
+    }
+    public void Level5()
+    {
+        if (enemiesSpawned < 2 && timer < 2)
+        {
+            timer = 0;
+            alienEnemyController.SpawnEnemy();
+            enemiesSpawned += 1;
+        }
+        else if (enemyController.getEnemies() == 0)
+        {
+            //win
         }
     }
 

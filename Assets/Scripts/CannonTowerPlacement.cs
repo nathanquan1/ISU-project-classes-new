@@ -11,9 +11,4 @@ public class CannonTowerPlacement : TowerPlacement
         base.Start();
         this.Price = 30;
     }
-    protected override void Place()
-    {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        cannonTowerController.PlaceTower(mousePos.x, mousePos.y);
-    }
 }

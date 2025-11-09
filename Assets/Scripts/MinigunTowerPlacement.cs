@@ -11,11 +11,4 @@ public class MinigunTowerPlacement : TowerPlacement
         base.Start();
         this.Price = 70;
     }
-    protected override void Place()
-    {
-        Debug.Log("MG place");
-        //towerPreview.SetActive(_selected);
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        minigunTowerController.PlaceTower(mousePos.x, mousePos.y);
-    }
 }

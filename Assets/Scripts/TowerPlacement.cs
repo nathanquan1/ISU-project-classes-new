@@ -57,9 +57,9 @@ public class TowerPlacement : MonoBehaviour
             towerPreview.SetActive(false);
         }
     }
-    protected virtual void Place()//Made this so the different buttons can inherit it for different prices+sprites
+    public void Place()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        towerController.PlaceTower(mousePos.x, mousePos.y); //default to cannon
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//screentoworld converts it into the right x ,y value in the game
+        towerController.PlaceTower(mousePos.x, mousePos.y);
     }
 }

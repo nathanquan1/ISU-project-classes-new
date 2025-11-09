@@ -389,7 +389,7 @@ Transform:
   m_GameObject: {fileID: 266222053}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5645112, y: 0.20161629, z: 0}
+  m_LocalPosition: {x: -10, y: 0.20161629, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -521,6 +521,7 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
+  EnemiesAlive: 0
 --- !u!1 &370708873
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,7 +869,7 @@ MonoBehaviour:
   gameplay: {fileID: 2083370029}
   towerPreview: {fileID: 226472035}
   pathway: {fileID: 2027605251}
-  towerController: {fileID: 0}
+  towerController: {fileID: 439538252}
   cannonTowerController: {fileID: 439538252}
   minigunTowerController: {fileID: 0}
   missileTowerController: {fileID: 0}
@@ -887,7 +888,7 @@ MonoBehaviour:
   gameplay: {fileID: 2083370029}
   towerPreview: {fileID: 1391109963}
   pathway: {fileID: 2027605251}
-  towerController: {fileID: 0}
+  towerController: {fileID: 439538253}
   cannonTowerController: {fileID: 0}
   minigunTowerController: {fileID: 439538253}
   missileTowerController: {fileID: 0}
@@ -906,7 +907,7 @@ MonoBehaviour:
   gameplay: {fileID: 2083370029}
   towerPreview: {fileID: 1969345723}
   pathway: {fileID: 2027605251}
-  towerController: {fileID: 0}
+  towerController: {fileID: 439538254}
   cannonTowerController: {fileID: 0}
   minigunTowerController: {fileID: 0}
   missileTowerController: {fileID: 439538254}
@@ -1461,6 +1462,7 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
+  EnemiesAlive: 0
 --- !u!95 &748925080
 Animator:
   serializedVersion: 5
@@ -1499,6 +1501,7 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
+  EnemiesAlive: 0
 --- !u!114 &748925083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1516,6 +1519,7 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
+  EnemiesAlive: 0
 --- !u!114 &748925084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1533,6 +1537,7 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
+  EnemiesAlive: 0
 --- !u!114 &748925085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1550,6 +1555,7 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
+  EnemiesAlive: 0
 --- !u!82 &748925086
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3537,13 +3543,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068824d61893d8d4d80cd234007b6055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneSwitcher: {fileID: 266222056}
-  GameRunning: 0
   enemyController: {fileID: 748925079}
   basicEnemyController: {fileID: 2083370033}
   fastEnemyController: {fileID: 2083370032}
   alienEnemyController: {fileID: 2083370031}
   redEnemyController: {fileID: 2083370034}
+  sceneSwitcher: {fileID: 266222056}
+  GameRunning: 0
   HealthDisplay: {fileID: 635163883}
   MoneyDisplay: {fileID: 1325638204}
   LevelDisplay: {fileID: 1560180272}
@@ -3583,6 +3589,7 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
+  EnemiesAlive: 0
 --- !u!114 &2083370032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3600,6 +3607,7 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
+  EnemiesAlive: 0
 --- !u!114 &2083370033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3617,6 +3625,7 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
+  EnemiesAlive: 0
 --- !u!114 &2083370034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3634,6 +3643,7 @@ MonoBehaviour:
   isSpawned: 0
   sound: {fileID: 748925086}
   HitSound: {fileID: 8300000, guid: 19e3fcff12fb6fc4ea89a3dbe32e7492, type: 3}
+  EnemiesAlive: 0
 --- !u!1 &2117602863
 GameObject:
   m_ObjectHideFlags: 0
