@@ -5,16 +5,21 @@ public class BulletController : MonoBehaviour
     private Vector3 _lockPos;
     private float _damage;
     private float _speed;
+    private float _angle;
     private EnemyController _targetRef; // This is only used to determine if the target still exists (no continuous tracking is performed).
     private float _life = 3f; // Insurance: Destroyed if it doesn't hit within 3 seconds.
     private float _hitDistance = 0.15f;
 
-    public void Init(Vector3 lockPos, float damage, float speed, EnemyController targetRef)
+    public void Init(Vector3 lockPos, float damage, float speed, EnemyController targetRef, float angle)
     {
         _lockPos = lockPos;
         _damage = damage;
         _speed = speed;
         _targetRef = targetRef;
+
+        //rotate bullet 
+        Quaternion rotate = Quaternion.Euler(0, 0, angle+270); //rotate an extra 270
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotate, 360); //max 360
     }
 
     void Update()

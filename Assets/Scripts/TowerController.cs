@@ -113,16 +113,19 @@ public class TowerController : MonoBehaviour
         //Lock onto the target's current position when bullet fired
         Vector3 lockPos = target.transform.position;
         
-        BulletController bc = go.GetComponent<BulletController>();
-        if (bc == null) bc = go.AddComponent<BulletController>(); // To prevent scripts from being installed
-        bc.Init(lockPos, damage, bulletSpeed, target);
-        //target.ApplyDamage(damage);
-
-
         //rotate when firing
         Vector3 direction = target.transform.position - transform.position; //difference in coordinates
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; //Finds angle towards target
         Quaternion rotate = Quaternion.Euler(0, 0, angle+270); //rotate an extra 270
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotate, 360); //max 360
+
+
+        BulletController bc = go.GetComponent<BulletController>();
+        if (bc == null) bc = go.AddComponent<BulletController>(); // To prevent scripts from being installed
+        bc.Init(lockPos, damage, bulletSpeed, target,angle);
+        //target.ApplyDamage(damage);
+
+
+        
     }
 }
