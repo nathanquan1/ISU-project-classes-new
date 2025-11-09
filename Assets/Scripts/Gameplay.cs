@@ -207,7 +207,7 @@ public class Gameplay : MonoBehaviour
             alienEnemyController.SpawnEnemy();
             enemiesSpawned += 1;
         }
-        else if (enemyController.getEnemies() == 0&&enemiesSpawned==2)
+        else if (enemyController.getEnemies() == 0 &&enemiesSpawned==2)
         {
             //win
             Win();

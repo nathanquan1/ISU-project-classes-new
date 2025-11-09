@@ -17,7 +17,7 @@ public class RedEnemyController : EnemyController
     {
         this._damage = 6;
         this._health = 50;
-        this._speed = 0.3f;
+        this._speed = 0.4f;
         this._value = 50;
     }
 
