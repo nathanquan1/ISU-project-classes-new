@@ -15,8 +15,8 @@ public class RedEnemyController : EnemyController
 
     protected override void SetStats()
     {
-        this._damage = 5;
-        this._health = 100;
+        this._damage = 6;
+        this._health = 50;
         this._speed = 0.3f;
         this._value = 50;
     }

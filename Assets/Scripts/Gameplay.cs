@@ -125,15 +125,11 @@ public class Gameplay : MonoBehaviour
     public void Level1()
     {
 
-        if (enemiesSpawned < 10) //1 enemy every 2 seconds (10 enemies max)
+        if (enemiesSpawned < 10&&timer >= 2) //1 enemy every 2 seconds (10 enemies max)
         {
-            timer += Time.deltaTime;
-            if (timer >= 2)
-            {
-                basicEnemyController.SpawnEnemy();
-                timer = 0;
-                enemiesSpawned += 1;
-            }
+            basicEnemyController.SpawnEnemy();
+            timer = 0;
+            enemiesSpawned += 1;
         }
         else if (enemyController.getEnemies() == 0) //When they all die start next wave
         {
@@ -146,15 +142,11 @@ public class Gameplay : MonoBehaviour
     }
     public void Level2()
     {
-        if (enemiesSpawned < 3) //1 enemy every 2 seconds (3 fast enemies max)
+        if (enemiesSpawned < 3&&timer >= 2) //1 enemy every 2 seconds (3 fast enemies max)
         {
-            timer += Time.deltaTime;
-            if (timer >= 2)
-            {
-                fastEnemyController.SpawnEnemy();
-                timer = 0;
-                enemiesSpawned += 1;
-            }
+            fastEnemyController.SpawnEnemy();
+            timer = 0;
+            enemiesSpawned += 1;
         }
         else if (enemyController.getEnemies() == 0)//wait 10 seconds AFTER all enemies spawn
         {
@@ -165,21 +157,17 @@ public class Gameplay : MonoBehaviour
     }
     public void Level3()
     {
-        if (enemiesSpawned < 6)//3 basics every second
+        if (enemiesSpawned < 7 &&timer >= 1)//7 total enemies
         {
-            timer += Time.deltaTime;
-            if (timer >= 1)//every second
+            timer = 0;
+            enemiesSpawned += 1;
+            if (enemiesSpawned < 3)//first 3 will be basic enemies
             {
-                timer = 0;
-                enemiesSpawned += 1;
-                if (enemiesSpawned < 3)//first 3 will be basic
-                {
-                    basicEnemyController.SpawnEnemy();
-                }
-                else //last 3 will be fast
-                {
-                    fastEnemyController.SpawnEnemy();
-                }
+                basicEnemyController.SpawnEnemy();
+            }
+            else //last 4 will be fast
+            {
+                fastEnemyController.SpawnEnemy();
             }
         }
         else if (enemyController.getEnemies() == 0)
@@ -191,13 +179,17 @@ public class Gameplay : MonoBehaviour
     }
     public void Level4()
     {
-        if (enemiesSpawned < 3)
+        if (enemiesSpawned < 4&&timer >= 2)
         {
-            if (timer >= 2)
+            timer = 0;
+            enemiesSpawned += 1;
+            if (enemiesSpawned<3)
             {
-                timer = 0;
-                enemiesSpawned += 1;
                 redEnemyController.SpawnEnemy();
+            }
+            else
+            {
+                fastEnemyController.SpawnEnemy();
             }
         }
         else if (enemyController.getEnemies() == 0)
@@ -209,7 +201,7 @@ public class Gameplay : MonoBehaviour
     }
     public void Level5()
     {
-        if (enemiesSpawned < 2 && timer < 2)
+        if (enemiesSpawned < 2 && timer > 2)
         {
             timer = 0;
             alienEnemyController.SpawnEnemy();

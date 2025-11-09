@@ -18,7 +18,7 @@ public class AlienEnemyController : EnemyController
     {
         Debug.Log("Set Alien Stats");
         this._damage = 20;
-        this._health = 60;
+        this._health = 80;
         this._speed = 0.5f;
         this._value = 30;
         this._defense = 0.7f;
