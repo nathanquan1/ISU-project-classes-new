@@ -28,11 +28,11 @@ public class SceneSwitcher : MonoBehaviour
     {
         SceneManager.LoadScene("MainScene");
     }
-    public void LoseGame()
+    public void Lost()
     {
         SceneManager.LoadScene("LoseGame");
     }
-    public void WinGame()
+    public void Won()
     {
         SceneManager.LoadScene("WinGame");
     }

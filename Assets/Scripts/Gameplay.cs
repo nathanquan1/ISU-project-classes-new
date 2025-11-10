@@ -87,7 +87,7 @@ public class Gameplay : MonoBehaviour
         }
         else if (Level >5)
         {
-            //Win();
+            Win();
         }
     }
 
@@ -117,7 +117,7 @@ public class Gameplay : MonoBehaviour
         if (Health - damage <= 0)
         {
             Health = 0;
-            sceneSwitcher.LoseGame();
+            sceneSwitcher.Lost();
         }
         else
         {
@@ -219,7 +219,7 @@ public class Gameplay : MonoBehaviour
     public void Win()
     {
         //Debug.Log("You Win!");
-        sceneSwitcher.WinGame();
+        sceneSwitcher.Won();
     }
     public void PlayHitSound()
     {
