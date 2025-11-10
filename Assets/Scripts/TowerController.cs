@@ -8,10 +8,7 @@ public class TowerController : MonoBehaviour
 {
     public GameObject tower;
 <<<<<<< HEAD
-<<<<<<< HEAD
     protected float timer;
-=======
->>>>>>> a46e9ae2fd6e64515ecab7a84d17b538924c94c2
 =======
 >>>>>>> a46e9ae2fd6e64515ecab7a84d17b538924c94c2
     protected float damage;
@@ -71,7 +68,6 @@ public class TowerController : MonoBehaviour
 
     protected virtual void SetStats()
     {
-<<<<<<< HEAD
 <<<<<<< HEAD
         damage = 1; //defaults to cannon in case of glitch
         fireRate = 0.75f;
@@ -138,17 +134,12 @@ public class TowerController : MonoBehaviour
 
         
 =======
-=======
->>>>>>> a46e9ae2fd6e64515ecab7a84d17b538924c94c2
         damage = 4;
     }
     public void HitEnemy(EnemyController enemy)
     {
         enemy._health -= damage;
 
-<<<<<<< HEAD
->>>>>>> a46e9ae2fd6e64515ecab7a84d17b538924c94c2
-=======
 >>>>>>> a46e9ae2fd6e64515ecab7a84d17b538924c94c2
     }
 }
