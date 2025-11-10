@@ -7,10 +7,10 @@ using UnityEngine;
 public class TowerController : MonoBehaviour
 {
     public GameObject tower;
-<<<<<<< HEAD
+
     protected float timer;
-=======
->>>>>>> a46e9ae2fd6e64515ecab7a84d17b538924c94c2
+
+
     protected float damage;
     public int speed;
     public static int TowersPlaced;
@@ -68,7 +68,6 @@ public class TowerController : MonoBehaviour
 
     protected virtual void SetStats()
     {
-<<<<<<< HEAD
         damage = 1; //defaults to cannon in case of glitch
         fireRate = 0.75f;
         range = 3.5f;
@@ -133,13 +132,13 @@ public class TowerController : MonoBehaviour
 
 
         
-=======
+
         damage = 4;
     }
     public void HitEnemy(EnemyController enemy)
     {
         enemy._health -= damage;
 
->>>>>>> a46e9ae2fd6e64515ecab7a84d17b538924c94c2
+
     }
 }
