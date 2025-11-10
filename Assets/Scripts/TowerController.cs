@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 
 //using System.Numerics;
@@ -7,8 +7,12 @@ using UnityEngine;
 public class TowerController : MonoBehaviour
 {
     public GameObject tower;
+
     protected float timer;
+
+
     protected float damage;
+    public int speed;
     public static int TowersPlaced;
     protected float _x;
     protected float _y;
@@ -128,5 +132,13 @@ public class TowerController : MonoBehaviour
 
 
         
+
+        damage = 4;
+    }
+    public void HitEnemy(EnemyController enemy)
+    {
+        enemy._health -= damage;
+
+
     }
 }
