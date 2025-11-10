@@ -23,9 +23,17 @@ public class SceneSwitcher : MonoBehaviour
         //variable : public Gameplay gameplay;
         //gameplay.StartGame();
     }
-    
-    public void Homescreen()
+
+    public void HomeScreen()
     {
         SceneManager.LoadScene("MainScene");
+    }
+    public void LoseGame()
+    {
+        SceneManager.LoadScene("LoseGame");
+    }
+    public void WinGame()
+    {
+        SceneManager.LoadScene("WinGame");
     }
 }

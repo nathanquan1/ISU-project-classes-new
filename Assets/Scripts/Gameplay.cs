@@ -93,8 +93,7 @@ public class Gameplay : MonoBehaviour
 
     public void EndGame()
     {
-        GameRunning = false;
-        sceneSwitcher.Homescreen();
+        EditorApplication.isPlaying = false;
 
     }
     public int GetMoney()
@@ -118,7 +117,7 @@ public class Gameplay : MonoBehaviour
         if (Health - damage <= 0)
         {
             Health = 0;
-            EndGame();
+            sceneSwitcher.LoseGame();
         }
         else
         {
@@ -220,8 +219,7 @@ public class Gameplay : MonoBehaviour
     public void Win()
     {
         //Debug.Log("You Win!");
-        GameRunning = false;
-        sceneSwitcher.Homescreen();
+        sceneSwitcher.WinGame();
     }
     public void PlayHitSound()
     {
